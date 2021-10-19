@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_shopping">50sp</dimen>
+    <dimen name="w_login_image">400dp</dimen>
+    <dimen name="h_login_image">300dp</dimen>
+    <dimen name="doYou">16sp</dimen>
+    <dimen name="login_t_doYou">45dp</dimen>
+    <dimen name="login_registration_text_size">18sp</dimen>
+    <dimen name="login_registration_e">50dp</dimen>
+    <dimen name="login_cancel_size">20sp</dimen>
+    <dimen name="login_cancel_t">40dp</dimen>
+    <dimen name="marginEnd_10">10dp</dimen>
+    <dimen name="marginStart_10">10dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+
+</resources>

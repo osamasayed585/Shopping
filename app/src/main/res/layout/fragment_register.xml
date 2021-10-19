@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.RegisterFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/h_login_image"
+        android:src="@drawable/register"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_name"
+        style = "@style/myTextInputLayout"
+        android:layout_marginStart="@dimen/marginStart_10"
+        android:layout_marginEnd="@dimen/marginEnd_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:startIconDrawable="@drawable/ic_person">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registration_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/full_name"
+            style = "@style/myTextInputEditText"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myTextInputLayout"
+        android:layout_marginStart="@dimen/marginStart_10"
+        android:layout_marginEnd="@dimen/marginEnd_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextInputLayout_name"
+        app:startIconDrawable="@drawable/ic_email">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registration_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_email"
+            style = "@style/myTextInputEditText"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myTextInputLayout"
+        android:layout_marginStart="@dimen/marginStart_10"
+        android:layout_marginEnd="@dimen/marginEnd_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextInputLayout_email"
+        app:startIconDrawable="@drawable/ic_baseline_local_phone_24">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registration_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_phone"
+            style="@style/myTextInputEditText"
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myTextInputLayout"
+        android:layout_marginStart="@dimen/marginStart_10"
+        android:layout_marginEnd="@dimen/marginEnd_10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextInputLayout_phone"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_lock">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registration_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_password"
+            style="@style/myTextInputEditText"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/registration_Registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStart_10"
+        android:layout_marginEnd="@dimen/marginEnd_10"
+        android:padding="@dimen/padding_10"
+        android:text="@string/registration"
+        android:theme="@style/myLoginButton"
+        app:layout_constraintBottom_toTopOf="@+id/registration_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextInputLayout_password" />
+
+    <ProgressBar
+        android:id="@+id/registration_progressBar"
+        style="@style/ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/registration_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="@dimen/login_cancel_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registration_Registration" />
+</androidx.constraintlayout.widget.ConstraintLayout>
