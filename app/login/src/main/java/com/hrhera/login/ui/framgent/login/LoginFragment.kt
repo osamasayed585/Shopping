@@ -1,4 +1,4 @@
-package com.example.shopping.ui
+package com.hrhera.login.ui.framgent.login
 
 import android.content.Context
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.shopping.R
-import com.example.shopping.databinding.FragmentLoginBinding
+import com.hrhera.login.R
+import com.hrhera.login.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {
@@ -22,9 +22,11 @@ class LoginFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater,container,false)
+
         binding.loginRegistration.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
         return binding.root
     }
 }
