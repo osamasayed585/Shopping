@@ -1,6 +1,6 @@
-package com.example.shopping.model.data
+package com.hrhera.login.model.data
 
-class Data {
+class LoginResponse {
 
     class Data{
         var email: String? = null
