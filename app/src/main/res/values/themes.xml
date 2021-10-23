@@ -51,7 +51,7 @@
     </style>
 
 <!--    login my button -->
-    <style name="myLoginButton" parent="@android:style/Widget.Button">
+    <style name="authanticationButtons" parent="@android:style/Widget.Button">
         <item name="fontFamily">@font/gilroy_bold</item>
         <item name="textAllCaps">false</item>
         <item name="colorPrimary">@color/purple_500</item>

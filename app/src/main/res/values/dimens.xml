@@ -11,6 +11,6 @@
     <dimen name="login_cancel_t">40dp</dimen>
     <dimen name="marginEnd_10">10dp</dimen>
     <dimen name="marginStart_10">10dp</dimen>
-    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
 
 </resources>

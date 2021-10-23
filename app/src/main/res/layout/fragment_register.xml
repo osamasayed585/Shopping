@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/TextInputLayout_phone"
-        app:passwordToggleEnabled="true"
+        app:endIconMode="password_toggle"
         app:startIconDrawable="@drawable/ic_lock">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registration_password"
@@ -110,9 +110,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marginStart_10"
         android:layout_marginEnd="@dimen/marginEnd_10"
-        android:padding="@dimen/padding_10"
+        android:padding="@dimen/padding_8"
         android:text="@string/registration"
-        android:theme="@style/myLoginButton"
+        android:theme="@style/authanticationButtons"
         app:layout_constraintBottom_toTopOf="@+id/registration_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
