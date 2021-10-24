@@ -14,4 +14,9 @@
     <string name="enter_email">Enter your email</string>
     <string name="enter_phone">Enter your phone</string>
     <string name="enter_password">Enter your password</string>
+    <string name="title_home">Home</string>
+    <string name="title_shopping">Shop</string>
+    <string name="account">Account</string>
+    <string name="message">Message</string>
+
 </resources>
