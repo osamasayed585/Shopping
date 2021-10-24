@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/login/src/main/res/drawable/ic_lock.xml" value="0.13333333333333333" />
+        <entry key="app/login/src/main/res/drawable/ic_person.xml" value="0.13333333333333333" />
+        <entry key="app/login/src/main/res/font/aclonica.xml" value="0.13333333333333333" />
         <entry key="app/login/src/main/res/layout/activity_main.xml" value="0.2703804347826087" />
+        <entry key="app/login/src/main/res/layout/fragment_login.xml" value="0.17123287671232876" />
+        <entry key="app/login/src/main/res/layout/fragment_register.xml" value="0.1375" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/drawable/ic_shopping_cart.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/drawable/navigationbar_selector.xml" value="0.13333333333333333" />
@@ -17,7 +22,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

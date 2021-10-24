@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">login</string>
+        <string name="app_name">Shopping</string>
+        <!-- TODO: Remove or change this placeholder text -->
+        <string name="hello_blank_fragment">Hello blank fragment</string>
+        <string name="welcome">Welcome.!</string>
+        <string name="shopping">Shopping</string>
+        <string name="email">Email</string>
+        <string name="password">Password</string>
+        <string name="login">Login</string>
+        <string name="do_you_have_not_any_account">Do you have not any account?</string>
+        <string name="registration">Registration</string>
+        <string name="cancel">Cancel</string>
+        <string name="full_name">Enter your name</string>
+        <string name="enter_email">Enter your email</string>
+        <string name="enter_phone">Enter your phone</string>
+        <string name="enter_password">Enter your password</string>
+        <string name="title_home">Home</string>
+        <string name="title_shopping">Shop</string>
+        <string name="account">Account</string>
+        <string name="message">Message</string>
+
 </resources>

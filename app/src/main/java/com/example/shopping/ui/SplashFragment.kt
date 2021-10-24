@@ -28,8 +28,11 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as MainActivity).supportActionBar?.hide()
         Handler(Looper.getMainLooper()).postDelayed({
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            (requireActivity() as MainActivity).supportActionBar?.show()
+
         }, 3000)
     }
 }
