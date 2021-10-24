@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.hrhera.login.R
-import com.hrhera.login.databinding.FragmentLoginBinding
+import com.example.shopping.R
+import com.example.shopping.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {

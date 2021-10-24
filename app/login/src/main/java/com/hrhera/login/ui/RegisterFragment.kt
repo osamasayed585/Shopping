@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hrhera.login.databinding.FragmentRegisterBinding
+import com.example.shopping.databinding.FragmentRegisterBinding
 
 
 class RegisterFragment : Fragment() {
