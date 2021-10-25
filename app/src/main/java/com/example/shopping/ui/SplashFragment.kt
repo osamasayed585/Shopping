@@ -1,6 +1,7 @@
 package com.example.shopping.ui
 
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,6 +12,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentSplashBinding
+import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
+import com.hrhera.login.utils.Static
 
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
@@ -34,18 +37,28 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as MainActivity).supportActionBar?.hide()
-        Handler(Looper.getMainLooper()).postDelayed({
-            initButtons(true)
-            initStatusBar(true)
-            binding.btLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-            }
-            binding.btSignUp.setOnClickListener {
-                findNavController().navigate(R.id.action_splashFragment_to_registerFragment)
-            }
-        }, 3000)
+            toWhere()
+        binding.btLogin.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_loginFragment) }
+        binding.btSignUp.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_registerFragment) }
+
     }
 
+
+
+
+    private fun toWhere(){
+        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(SHOPPING_DATA, Context.MODE_PRIVATE)
+        val statusLogin = sharedPreferences.getBoolean("STATUS_LOGIN", false)
+        val statusRegister = sharedPreferences.getBoolean("STATUS_REGISTER", false)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (statusLogin || statusRegister) {
+                Static.onLogin?.onDone()
+            }
+            initButtons(true)
+            initStatusBar(true)
+        }, 3000)
+    }
 
     private fun initButtons(state: Boolean) {
         if (state) {
@@ -56,7 +69,6 @@ class SplashFragment : Fragment() {
             binding.btSignUp.visibility = View.GONE
         }
     }
-
     private fun initStatusBar(state: Boolean) {
         if (state) {
             (requireActivity() as MainActivity).supportActionBar?.show()
