@@ -24,5 +24,13 @@
     <string name="loginWith">Login with social media Account</string>
     <string name="already">Already have an Account</string>
     <string name="here">Login here</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="user">Usama Sayed</string>
+    <string name="account_profile">Account Profile</string>
+    <string name="language_setting">LAnguage Settings</string>
+    <string name="change_password">Chnage Password</string>
+    <string name="my_favourite">My Favourite</string>
+    <string name="about">About</string>
+    <string name="logout">Logout</string>
 
 </resources>

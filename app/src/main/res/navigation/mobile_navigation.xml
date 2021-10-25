@@ -17,9 +17,14 @@
         android:label="@string/title_shopping"
         tools:layout="@layout/fragment_shop" />
     <fragment
-        android:id="@+id/accountFragment"
-        android:name="com.example.shopping.AccountFragment"
+        android:id="@+id/navigation_account"
+        android:name="com.example.shopping.ui.dashboard.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.shopping.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
 
 </navigation>
