@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="@color/blue_500"
+        android:background="@color/welcome_Color"
         android:visibility="gone"
         app:itemIconTint="@color/navigation_bar_selector"
         app:itemTextColor="@color/navigation_bar_selector"

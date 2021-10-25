@@ -32,5 +32,7 @@
     <string name="my_favourite">My Favourite</string>
     <string name="about">About</string>
     <string name="logout">Logout</string>
+    <string name="my_orders">My Orders</string>
+    <string name="actionbar_spinner">ActionBar Spinner</string>
 
 </resources>

@@ -4,7 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MessageFragment">
+    tools:context="ui.message.MessageFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/MyToolbarStyle"
+        tools:title="For Test"
+        app:titleTextColor="@color/white"
+        app:menu="@menu/account_menu"
+        app:layout_collapseMode="pin" />
 
     <TextView
         android:layout_width="match_parent"

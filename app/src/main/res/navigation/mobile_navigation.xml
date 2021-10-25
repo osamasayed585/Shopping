@@ -18,13 +18,23 @@
         tools:layout="@layout/fragment_shop" />
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.shopping.ui.dashboard.account.AccountFragment"
+        android:name="com.example.shopping.ui.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/navigation_message"
-        android:name="com.example.shopping.MessageFragment"
+        android:name="com.example.shopping.ui.message.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.example.shopping.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.shopping.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" />
 
 </navigation>

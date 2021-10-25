@@ -30,5 +30,15 @@
     <string name="my_favourite">My Favourite</string>
     <string name="about">About</string>
     <string name="logout">Logout</string>
+    <string name="my_orders">My Orders</string>
+    <string name="actionbar_spinner">ActionBar Spinner</string>
+
+
+    <string-array name="spinnerData">
+        <item>All</item>
+        <item>t1</item>
+        <item>t2</item>
+        <item>t3</item>
+    </string-array>
 
 </resources>

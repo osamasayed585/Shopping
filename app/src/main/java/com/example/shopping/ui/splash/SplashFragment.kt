@@ -1,4 +1,4 @@
-package com.example.shopping.ui
+package com.example.shopping.ui.splash
 
 
 import android.content.Context
@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentSplashBinding
+import com.example.shopping.ui.main.MainActivity
 import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
 import com.hrhera.login.utils.Static
 
