@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.ShopFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/MyToolbarStyle"
+        app:layout_collapseMode="pin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:menu="@menu/shop_menu">
+        <Spinner
+            android:id="@+id/toolbar_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_marginLeft="0dp"
+            android:theme="@style/Spinner"
+            android:entries="@array/spinnerData"
+            android:layout_marginStart="4dp"
+            android:spinnerMode="dropdown"
+            android:maxLines="1"
+            tools:ignore="RtlHardcoded" />
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
@@ -15,6 +41,7 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:text="shop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

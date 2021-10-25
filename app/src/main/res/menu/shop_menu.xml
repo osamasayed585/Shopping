@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:title="@string/my_orders"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
+        android:id="@+id/favouriteFragment"
+        android:title="@string/my_favourite"
+        android:icon="@drawable/ic_favorite"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/ordersFragment"
+        android:title="@string/my_orders"
+        android:icon="@drawable/ic_cart"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+
+<!--    <item-->
+<!--        android:id="@+id/spinner"-->
+<!--        android:title="@string/actionbar_spinner"-->
+<!--        app:actionViewClass="android.widget.Spinner"-->
+<!--        android:background="@color/white"-->
+<!--        app:showAsAction="always" />-->
+
+</menu>
