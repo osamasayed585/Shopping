@@ -7,7 +7,6 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="do_you_have_not_any_account">Do you have not any account?</string>
     <string name="registration">Registration</string>
     <string name="cancel">Cancel</string>
     <string name="full_name">Enter your name</string>
@@ -18,5 +17,10 @@
     <string name="title_shopping">Shop</string>
     <string name="account">Account</string>
     <string name="message">Message</string>
+    <string name="signUp">Sign Up</string>
+    <string name="Do_not">Don\'t have Account?</string>
+    <string name="already">Already have an Account</string>
+    <string name="loginWith">Login with social media Account</string>
+    <string name="here">Login here</string>
 
 </resources>
