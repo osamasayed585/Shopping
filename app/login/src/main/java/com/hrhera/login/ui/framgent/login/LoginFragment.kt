@@ -3,6 +3,8 @@ package com.hrhera.login.ui.framgent.login
 
 import android.content.Context
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -90,5 +92,29 @@ class LoginFragment : Fragment() {
         } else {
             binding.loginProgressBar.visibility = View.GONE
         }
+    }
+
+    private fun checkingData():Boolean{
+        val pass = binding.loginPassword.text.toString()
+        val email = binding.loginEmail.text.toString()
+        val state: Boolean = isValidEmail(email)
+        if (state) {
+            binding.textInputLayout.error = null
+        }else{
+            binding.textInputLayout.error = getString(R.string.Invalid_email)
+            return false
+        }
+        if (pass.length < 6){
+            binding.textInputLayout2.error = getString(R.string.ErrorPassword)
+            return false
+        }
+        else{
+            binding.textInputLayout2.error = null
+        }
+
+        return true
+    }
+    private fun isValidEmail(email: String): Boolean {
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

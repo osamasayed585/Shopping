@@ -1,0 +1,6 @@
+com/example/shopping/BuildConfig.java
+ com.example.shopping.BuildConfig
+com/example/shopping/databinding/FragmentLoginBinding.java
+ com.example.shopping.databinding.FragmentLoginBinding
+com/example/shopping/databinding/FragmentRegisterBinding.java
+ com.example.shopping.databinding.FragmentRegisterBinding
