@@ -18,5 +18,12 @@
         <string name="title_shopping">Shop</string>
         <string name="account">Account</string>
         <string name="message">Message</string>
+        <string name="Do_not">Don\'t have Account?</string>
+        <string name="already">Already have an Account</string>
+        <string name="loginWith">Login with social media Account</string>
+        <string name="here">Login here</string>
+        <string name="ErrorPassword">Password must be at least 6 characters</string>
+        <string name="ErrorPhone">Phone must be at least 6 characters</string>
+        <string name="Invalid_email">Invalid email</string>
 
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ErrorPassword">Password must be at least 6 characters</string>
+    <string name="ErrorPhone">Phone must be at least 6 characters</string>
+    <string name="Invalid_email">Invalid email</string>
+</resources>

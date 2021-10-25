@@ -1,9 +1,9 @@
 package com.example.shopping.model.data
 
-import com.hrhera.login.model.data.LoginResponse
+import com.hrhera.login.model.data.Data
 
 data class User(
-    val loginResponse: LoginResponse,
+    val `data`: Data,
     val message: String,
     val status: Boolean
         )
