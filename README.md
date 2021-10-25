@@ -10,7 +10,7 @@ Shopping is an app an e-commerce application under creating
 </p>
 
 <p align="center">
-<img src ="https://user-images.githubusercontent.com/68209547/138571259-cda7c4b0-0585-412b-9481-b044a14b4f25.jpg">
+<img src ="https://user-images.githubusercontent.com/68209547/138667286-ddd57ec5-dd55-4f72-bf6c-9556157ee3a2.png">
 </p>
 
 ## FEATURES 
