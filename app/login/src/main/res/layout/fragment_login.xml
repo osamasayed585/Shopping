@@ -59,7 +59,7 @@
         style="@style/myTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/login_Login"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
@@ -77,7 +77,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/login_Login"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -86,13 +86,13 @@
         android:layout_marginEnd="@dimen/marginEnd_10"
         android:layout_marginStart="@dimen/marginStart_10"
         android:theme="@style/authanticationButtons"
-        app:layout_constraintBottom_toTopOf="@+id/doYou"
+        app:layout_constraintBottom_toTopOf="@+id/doNot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <TextView
-        android:id="@+id/doYou"
+        android:id="@+id/doNot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/login_t_doYou"
@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toTopOf="@+id/login_cancel"
         app:layout_constraintEnd_toStartOf="@+id/login_registration"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_Login" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <TextView
         android:id="@+id/login_registration"
@@ -114,8 +114,8 @@
         android:textSize="@dimen/login_registration_text_size"
         app:layout_constraintBottom_toTopOf="@+id/login_cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/doYou"
-        app:layout_constraintTop_toBottomOf="@+id/login_Login"
+        app:layout_constraintStart_toEndOf="@+id/doNot"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.476" />
 
     <TextView
@@ -131,6 +131,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_Login" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

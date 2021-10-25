@@ -13,16 +13,21 @@ import com.example.shopping.R
 import com.example.shopping.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
-    private lateinit var binding : FragmentSplashBinding
+    private lateinit var binding: FragmentSplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        initStatusBar(false)
+
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentSplashBinding.inflate(inflater,container,false)
+        binding = FragmentSplashBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,9 +35,33 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as MainActivity).supportActionBar?.hide()
         Handler(Looper.getMainLooper()).postDelayed({
+            initButtons(true)
+            initStatusBar(true)
+            binding.btLogin.setOnClickListener {
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-            (requireActivity() as MainActivity).supportActionBar?.show()
-
+            }
+            binding.btSignUp.setOnClickListener {
+                findNavController().navigate(R.id.action_splashFragment_to_registerFragment)
+            }
         }, 3000)
+    }
+
+
+    private fun initButtons(state: Boolean) {
+        if (state) {
+            binding.btLogin.visibility = View.VISIBLE
+            binding.btSignUp.visibility = View.VISIBLE
+        } else {
+            binding.btLogin.visibility = View.GONE
+            binding.btSignUp.visibility = View.GONE
+        }
+    }
+
+    private fun initStatusBar(state: Boolean) {
+        if (state) {
+            (requireActivity() as MainActivity).supportActionBar?.show()
+        } else {
+            requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        }
     }
 }
