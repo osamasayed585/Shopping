@@ -70,4 +70,13 @@ dependencies {
 
     // circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    // SDP For Multi Screen size check at https://github.com/intuit/sdp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    // Load Image By Url
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
 }

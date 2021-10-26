@@ -10,40 +10,47 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?actionBarSize"
+        android:minHeight="?attr/actionBarSize"
         android:theme="@style/MyToolbarStyle"
         app:layout_collapseMode="pin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:menu="@menu/shop_menu">
+        app:menu="@menu/shop_menu"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
         <Spinner
             android:id="@+id/toolbar_spinner"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_marginLeft="0dp"
-            android:theme="@style/Spinner"
-            android:entries="@array/spinnerData"
             android:layout_marginStart="4dp"
-            android:spinnerMode="dropdown"
+            android:layout_marginLeft="0dp"
+            android:entries="@array/spinnerData"
             android:maxLines="1"
+            android:spinnerMode="dropdown"
+            android:theme="@style/Spinner"
             tools:ignore="RtlHardcoded" />
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <ProgressBar
+        android:id="@+id/isLoading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="shop"
+        android:progressTint="@color/blue_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+      />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

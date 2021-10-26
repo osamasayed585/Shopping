@@ -1302,6 +1302,7 @@ color purple_200
 color purple_500
 color purple_700
 color radiobutton_themeable_attribute_color
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -2088,9 +2089,11 @@ id easeOut
 id east
 id edit_query
 id elastic
+id emailTextInputLayout
 id end
 id endToStart
 id end_padder
+id errorMessage
 id expand_activities_button
 id expanded_menu
 id fade
@@ -2231,6 +2234,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passwordTextInputLayout
 id password_toggle
 id path
 id pathRelative
@@ -2335,8 +2339,6 @@ id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
 id text2
-id textInputLayout
-id textInputLayout2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id text_input_end_icon

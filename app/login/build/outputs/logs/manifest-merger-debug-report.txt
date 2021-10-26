@@ -1,37 +1,25 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
+ADDED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml:2:1-3:37
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml:2:1-3:37
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml:2:1-3:37
 	package
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:3:5-35
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-	android:versionName
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-	android:versionCode
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:1-3:37
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
+		ADDED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml:3:5-35
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml:2:11-69
 uses-sdk
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+		ADDED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		ADDED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
-		INJECTED from D:\Projects\Shopping\app\login\src\main\AndroidManifest.xml
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+		ADDED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
+		INJECTED from /home/ali/android/AndroidApps/Shopping/app/login/src/main/AndroidManifest.xml
