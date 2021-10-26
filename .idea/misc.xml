@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1983695652173913" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1983695652173913" />
         <entry key="app/src/main/res/layout/fragment_shop.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/row_one_product_item.xml" value="0.14" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
       </map>

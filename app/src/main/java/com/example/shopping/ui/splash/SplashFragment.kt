@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentSplashBinding
@@ -38,17 +39,20 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as MainActivity).supportActionBar?.hide()
-            toWhere()
+        toWhere()
+        initButtons(false)
         binding.btLogin.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_loginFragment) }
         binding.btSignUp.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_registerFragment) }
+        binding.skipLogin.setOnClickListener { Static.onLogin?.onDone() }
 
     }
 
 
-
-
-    private fun toWhere(){
-        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(SHOPPING_DATA, Context.MODE_PRIVATE)
+    private fun toWhere() {
+        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(
+            SHOPPING_DATA,
+            Context.MODE_PRIVATE
+        )
         val statusLogin = sharedPreferences.getBoolean("STATUS_LOGIN", false)
         val statusRegister = sharedPreferences.getBoolean("STATUS_REGISTER", false)
 
@@ -62,14 +66,11 @@ class SplashFragment : Fragment() {
     }
 
     private fun initButtons(state: Boolean) {
-        if (state) {
-            binding.btLogin.visibility = View.VISIBLE
-            binding.btSignUp.visibility = View.VISIBLE
-        } else {
-            binding.btLogin.visibility = View.GONE
-            binding.btSignUp.visibility = View.GONE
-        }
+        binding.skipLogin.isVisible = state
+        binding.btLogin.isVisible = state
+        binding.btSignUp.isVisible = state
     }
+
     private fun initStatusBar(state: Boolean) {
         if (state) {
             (requireActivity() as MainActivity).supportActionBar?.show()
