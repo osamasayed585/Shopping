@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_8sdp"
-    android:minHeight="@dimen/_180sdp"
+    android:minHeight="@dimen/_150sdp"
     app:cardCornerRadius="@dimen/_16sdp"
     app:cardElevation="@dimen/_8sdp">
 
@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_12sdp"
