@@ -44,6 +44,7 @@
     <string name="ErrorPassword">Password must be at least 6 characters</string>
     <string name="ErrorPhone">Phone must be at least 6 characters</string>
     <string name="Invalid_email">Invalid email</string>
+    <string name="Invalid_password">Invalid Password</string>
     <string name="account">Account</string>
     <string name="already">Already have an Account</string>
     <string name="app_name">Shopping</string>

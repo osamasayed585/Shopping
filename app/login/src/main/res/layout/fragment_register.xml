@@ -21,11 +21,11 @@
 
     <TextView
         android:id="@+id/tvLogo"
-        android:theme="@style/RedHUGEText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="61dp"
         android:layout_marginTop="100dp"
         android:text="@string/shopping"
+        android:theme="@style/RedHUGEText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +137,15 @@
                 tools:layout_editor_absoluteX="0dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/TextInputLayout_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/registration_Registration"

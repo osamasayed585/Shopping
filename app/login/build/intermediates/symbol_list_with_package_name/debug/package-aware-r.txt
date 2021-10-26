@@ -2556,6 +2556,7 @@ string Do_not
 string ErrorPassword
 string ErrorPhone
 string Invalid_email
+string Invalid_password
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

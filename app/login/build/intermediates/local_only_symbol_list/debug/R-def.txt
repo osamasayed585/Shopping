@@ -93,6 +93,7 @@ string Do_not
 string ErrorPassword
 string ErrorPhone
 string Invalid_email
+string Invalid_password
 string account
 string already
 string app_name

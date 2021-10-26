@@ -15,3 +15,7 @@ fun String?.isInvalidPassword(): Boolean {
     return this ==null || TextUtils.isEmpty(this) || this.length<6
 }
 
+fun String?.isInvalidPhone(): Boolean {
+    return this ==null || TextUtils.isEmpty(this) || this.length<11
+}
+
