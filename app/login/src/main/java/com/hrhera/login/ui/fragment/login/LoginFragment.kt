@@ -7,7 +7,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,6 +14,7 @@ import com.example.shopping.R
 import com.example.shopping.databinding.FragmentLoginBinding
 import com.hrhera.login.model.data.Data
 import com.hrhera.login.utils.LoginStates
+import androidx.core.view.isVisible as isVisible1
 
 
 class LoginFragment : Fragment() {
@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
         }
 
 
-        loginViewModel.loginStatesMutableLiveData.observe(viewLifecycleOwner) {
+        loginViewModel.loginUserLiveData.observe(viewLifecycleOwner) {
             initProgressBar(it == LoginStates.LOADING())
 
             when (it) {
@@ -63,8 +63,6 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
 
@@ -72,8 +70,6 @@ class LoginFragment : Fragment() {
         binding.passwordTextInputLayout.error = null
         binding.emailTextInputLayout.error = null
         binding.errorMessage.visibility = GONE
-
-        initProgressBar(true)
         loginViewModel.loginUser(
             Data(
                 binding.loginEmail.text.toString(),
@@ -82,9 +78,12 @@ class LoginFragment : Fragment() {
         )
     }
 
-
     private fun initProgressBar(state: Boolean) {
-        binding.loginProgressBar.isVisible = state
+        if (state) {
+            binding.loginProgressBar.visibility = VISIBLE
+        } else {
+            binding.loginProgressBar.visibility = GONE
+        }
     }
 
 

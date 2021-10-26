@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
-import androidx.viewbinding.ViewBindings;
 import com.example.shopping.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -35,6 +34,9 @@ public final class FragmentRegisterBinding implements ViewBinding {
 
   @NonNull
   public final TextInputLayout TextInputLayoutPhone;
+
+  @NonNull
+  public final TextView errorMessage;
 
   @NonNull
   public final ImageView imageView;
@@ -69,17 +71,18 @@ public final class FragmentRegisterBinding implements ViewBinding {
   private FragmentRegisterBinding(@NonNull ConstraintLayout rootView,
       @NonNull TextInputLayout TextInputLayoutEmail, @NonNull TextInputLayout TextInputLayoutName,
       @NonNull TextInputLayout TextInputLayoutPassword,
-      @NonNull TextInputLayout TextInputLayoutPhone, @NonNull ImageView imageView,
-      @NonNull TextView registerLoginHere, @NonNull TextInputEditText registrationEmail,
-      @NonNull TextInputEditText registrationPassword, @NonNull TextInputEditText registrationPhone,
-      @NonNull ProgressBar registrationProgressBar, @NonNull Button registrationRegistration,
-      @NonNull TextInputEditText registrationUsername, @NonNull TextView tvAleardy,
-      @NonNull TextView tvLogo) {
+      @NonNull TextInputLayout TextInputLayoutPhone, @NonNull TextView errorMessage,
+      @NonNull ImageView imageView, @NonNull TextView registerLoginHere,
+      @NonNull TextInputEditText registrationEmail, @NonNull TextInputEditText registrationPassword,
+      @NonNull TextInputEditText registrationPhone, @NonNull ProgressBar registrationProgressBar,
+      @NonNull Button registrationRegistration, @NonNull TextInputEditText registrationUsername,
+      @NonNull TextView tvAleardy, @NonNull TextView tvLogo) {
     this.rootView = rootView;
     this.TextInputLayoutEmail = TextInputLayoutEmail;
     this.TextInputLayoutName = TextInputLayoutName;
     this.TextInputLayoutPassword = TextInputLayoutPassword;
     this.TextInputLayoutPhone = TextInputLayoutPhone;
+    this.errorMessage = errorMessage;
     this.imageView = imageView;
     this.registerLoginHere = registerLoginHere;
     this.registrationEmail = registrationEmail;
@@ -120,92 +123,98 @@ public final class FragmentRegisterBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.TextInputLayout_email;
-      TextInputLayout TextInputLayoutEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutEmail = rootView.findViewById(id);
       if (TextInputLayoutEmail == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_name;
-      TextInputLayout TextInputLayoutName = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutName = rootView.findViewById(id);
       if (TextInputLayoutName == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_password;
-      TextInputLayout TextInputLayoutPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutPassword = rootView.findViewById(id);
       if (TextInputLayoutPassword == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_phone;
-      TextInputLayout TextInputLayoutPhone = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutPhone = rootView.findViewById(id);
       if (TextInputLayoutPhone == null) {
         break missingId;
       }
 
+      id = R.id.errorMessage;
+      TextView errorMessage = rootView.findViewById(id);
+      if (errorMessage == null) {
+        break missingId;
+      }
+
       id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
+      ImageView imageView = rootView.findViewById(id);
       if (imageView == null) {
         break missingId;
       }
 
       id = R.id.register_loginHere;
-      TextView registerLoginHere = ViewBindings.findChildViewById(rootView, id);
+      TextView registerLoginHere = rootView.findViewById(id);
       if (registerLoginHere == null) {
         break missingId;
       }
 
       id = R.id.registration_email;
-      TextInputEditText registrationEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationEmail = rootView.findViewById(id);
       if (registrationEmail == null) {
         break missingId;
       }
 
       id = R.id.registration_password;
-      TextInputEditText registrationPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationPassword = rootView.findViewById(id);
       if (registrationPassword == null) {
         break missingId;
       }
 
       id = R.id.registration_phone;
-      TextInputEditText registrationPhone = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationPhone = rootView.findViewById(id);
       if (registrationPhone == null) {
         break missingId;
       }
 
       id = R.id.registration_progressBar;
-      ProgressBar registrationProgressBar = ViewBindings.findChildViewById(rootView, id);
+      ProgressBar registrationProgressBar = rootView.findViewById(id);
       if (registrationProgressBar == null) {
         break missingId;
       }
 
       id = R.id.registration_Registration;
-      Button registrationRegistration = ViewBindings.findChildViewById(rootView, id);
+      Button registrationRegistration = rootView.findViewById(id);
       if (registrationRegistration == null) {
         break missingId;
       }
 
       id = R.id.registration_username;
-      TextInputEditText registrationUsername = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationUsername = rootView.findViewById(id);
       if (registrationUsername == null) {
         break missingId;
       }
 
       id = R.id.tvAleardy;
-      TextView tvAleardy = ViewBindings.findChildViewById(rootView, id);
+      TextView tvAleardy = rootView.findViewById(id);
       if (tvAleardy == null) {
         break missingId;
       }
 
       id = R.id.tvLogo;
-      TextView tvLogo = ViewBindings.findChildViewById(rootView, id);
+      TextView tvLogo = rootView.findViewById(id);
       if (tvLogo == null) {
         break missingId;
       }
 
       return new FragmentRegisterBinding((ConstraintLayout) rootView, TextInputLayoutEmail,
-          TextInputLayoutName, TextInputLayoutPassword, TextInputLayoutPhone, imageView,
-          registerLoginHere, registrationEmail, registrationPassword, registrationPhone,
+          TextInputLayoutName, TextInputLayoutPassword, TextInputLayoutPhone, errorMessage,
+          imageView, registerLoginHere, registrationEmail, registrationPassword, registrationPhone,
           registrationProgressBar, registrationRegistration, registrationUsername, tvAleardy,
           tvLogo);
     }

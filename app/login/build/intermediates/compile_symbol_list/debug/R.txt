@@ -2555,6 +2555,7 @@ int string Do_not 0x0
 int string ErrorPassword 0x0
 int string ErrorPhone 0x0
 int string Invalid_email 0x0
+int string Invalid_password 0x0
 int string abc_action_bar_home_description 0x0
 int string abc_action_bar_up_description 0x0
 int string abc_action_menu_overflow_description 0x0

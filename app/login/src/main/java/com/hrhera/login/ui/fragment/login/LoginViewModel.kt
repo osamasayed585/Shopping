@@ -22,11 +22,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
 
     private var repository: RemoteRepositoryImp
-    var loginStatesMutableLiveData = MutableLiveData<LoginStates>()
+    private  var loginStatesMutableLiveData = MutableLiveData<LoginStates>()
 
-
-    //    private var loginUserMutableLiveData = MutableLiveData<User>()
-//    val loginUserLiveData: LiveData<User> get() = loginUserMutableLiveData
+    val loginUserLiveData: LiveData<LoginStates> get() = loginStatesMutableLiveData
 
     init {
         val service = RemoteBuilder.builderLogin().create(ShoppingAPI::class.java)
@@ -42,7 +40,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         }
         if (responseData.password.isInvalidPassword()) {
             loginStatesMutableLiveData.value =
-                LoginStates.PASSWORD_ERROR(ctx.getString(R.string.Invalid_email))
+                LoginStates.PASSWORD_ERROR(ctx.getString(R.string.Invalid_password))
             return
         }
         loginStatesMutableLiveData.value = LoginStates.LOADING()
@@ -62,11 +60,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             } else {
                 loginStatesMutableLiveData.value = LoginStates.SOME_ERROR(result.body()!!.message)
             }
-//            loginUserMutableLiveData.postValue(result.body())
         } else {
             loginStatesMutableLiveData.value = LoginStates.SOME_ERROR(result.message())
-
-            Log.i(TAG, "loginUser: ${result.message()}")
+            Log.i(TAG, "startLogin: ${result.message()}")
         }
     }
 

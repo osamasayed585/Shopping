@@ -7,6 +7,8 @@ import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -16,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.hrhera.login.model.data.Data
 import com.hrhera.login.utils.Constants
 import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
+import com.hrhera.login.utils.RegisterState
 import com.hrhera.login.utils.Static
 
 
@@ -37,49 +40,45 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         registerViewModel = ViewModelProvider(requireActivity()).get(RegisterViewModel::class.java)
-
         binding.registerLoginHere.setOnClickListener {
             Navigation.findNavController(view).popBackStack()
         }
+
         binding.registrationRegistration.setOnClickListener {
-            if (checkingData()) {
-                initRegister()
-            }
+            initRegister()
         }
-        initLiveDataObserve(view)
-    }
 
+        registerViewModel.registerUserLiveData.observe(viewLifecycleOwner,{
+            initProgressBar(it == RegisterState.LOADING())
 
-    private fun initLiveDataObserve(view: View) {
-        registerViewModel.registerUserLiveData.observe(viewLifecycleOwner, {
-            if (it != null && it.status) {
-                val tokenRegister: String = it.data.token.toString()
-                saveData(tokenRegister, true)
-                initProgressBar(false)
-                Static.onLogin?.onDone()
-            } else {
-                if (it != null) {
-                    initProgressBar(false)
-                    Snackbar.make(view, it.message, Snackbar.LENGTH_LONG).show()
+            when(it) {
+                is RegisterState.EMAIL_ERROR -> {
+                    binding.TextInputLayoutEmail.error = it.error
+                }
+                is RegisterState.PHONE_ERROR -> {
+                    binding.TextInputLayoutPhone.error = it.error
+                }
+                is RegisterState.PASSWORD_ERROR -> {
+                    binding.TextInputLayoutPassword.error = it.error
+                }
+                is RegisterState.SOME_ERROR -> {
+                    binding.errorMessage.visibility = VISIBLE
+                    binding.errorMessage.text = it.error
+                }
+                else -> {
+                    initProgressBar( it != RegisterState.SUCCESS())
                 }
             }
         })
-    }
 
-    private fun saveData(token: String, status: Boolean) {
-        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(
-            SHOPPING_DATA ,
-            Context.MODE_PRIVATE
-        )
-        val editor = sharedPreferences.edit()
-        editor.apply {
-            putString(Constants.TOKEN_REGISTER, token)
-            putBoolean(Constants.STATUS_REGISTER, status)
-        }.apply()
     }
 
     private fun initRegister() {
-        initProgressBar(true)
+        binding.TextInputLayoutEmail.error = null
+        binding.TextInputLayoutPhone.error = null
+        binding.TextInputLayoutPassword.error = null
+        binding.errorMessage.visibility = GONE
+
         registerViewModel.registerUser(
             Data(
                 binding.registrationEmail.text.toString(),
@@ -90,42 +89,11 @@ class RegisterFragment : Fragment() {
         )
     }
 
-    private fun checkingData(): Boolean {
-        val pass = binding.registrationPassword.text.toString()
-        val phone = binding.registrationPhone.text.toString()
-        val email = binding.registrationEmail.text.toString()
-        val state: Boolean = isValidEmail(email)
-        if (state) {
-            binding.TextInputLayoutEmail.error = null
-        }else{
-            binding.TextInputLayoutEmail.error = getString(R.string.Invalid_email)
-            return false
-        }
-        if (phone.length < 11) {
-            binding.TextInputLayoutPhone.error = getString(R.string.ErrorPhone)
-            return false
-        }else{
-            binding.TextInputLayoutPhone.error = null
-        }
-        if (pass.length < 6) {
-            binding.TextInputLayoutPassword.error = getString(R.string.ErrorPassword)
-            return false
-        }else{
-            binding.TextInputLayoutPassword.error = null
-        }
-
-        return true
-    }
-
-    private fun isValidEmail(email: String): Boolean {
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
     private fun initProgressBar(state: Boolean) {
         if (state) {
-            binding.registrationProgressBar.visibility = View.VISIBLE
+            binding.registrationProgressBar.visibility = VISIBLE
         } else {
-            binding.registrationProgressBar.visibility = View.GONE
+            binding.registrationProgressBar.visibility = GONE
         }
     }
 }
