@@ -10,5 +10,6 @@
     <color name="blue_700">#225BAD</color>
     <color name="blue_500">#1486FF</color>
     <color name="welcome_Color">#225BAD</color>
+    <color name="red">#FF1100</color>
 
 </resources>

@@ -14,12 +14,9 @@ import com.example.shopping.R
 import com.example.shopping.databinding.FragmentRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import com.hrhera.login.model.data.Data
-import com.hrhera.login.model.remote.ShoppingAPI
-import com.hrhera.login.ui.framgent.login.LoginViewModel
 import com.hrhera.login.utils.Constants
 import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
 import com.hrhera.login.utils.Static
-import kotlinx.coroutines.flow.callbackFlow
 
 
 class RegisterFragment : Fragment() {

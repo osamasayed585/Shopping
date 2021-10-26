@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/welcome_Color"
     app:layout_constraintEnd_toEndOf="parent"
-    tools:context="com.hrhera.login.ui.framgent.login.LoginFragment">
+    tools:context="com.hrhera.login.ui.fragment.login.LoginFragment">
 
 
     <ImageView
@@ -47,7 +47,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/emailTextInputLayout"
             style="@style/myTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <!--    app:helperTextEnabled="true"-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout2"
+            android:id="@+id/passwordTextInputLayout"
             style="@style/myTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
             app:startIconDrawable="@drawable/ic_lock">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -91,7 +91,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+        <TextView
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/red"
+             />
         <Button
+
             android:id="@+id/btnLogin"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -106,7 +118,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+            app:layout_constraintTop_toBottomOf="@+id/errorMessage" />
 
         <TextView
             android:id="@+id/doNot"
