@@ -74,9 +74,14 @@ dependencies {
 
     // SDP For Multi Screen size check at https://github.com/intuit/sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    // for text views
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     // Load Image By Url
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // NotificationBadge check at https://github.com/nex3z/NotificationBadge#notificationbadge
+    implementation 'com.nex3z:notification-badge:1.0.4'
 
 
 }

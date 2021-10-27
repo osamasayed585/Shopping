@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/favouriteFragment"
+        android:id="@+id/fav"
         android:title="@string/my_favourite"
         android:icon="@drawable/ic_favorite"
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/ordersFragment"
-        android:title="@string/my_orders"
+        android:id="@+id/orders"
+        android:title="@string/my_favourite"
         android:icon="@drawable/ic_cart"
         app:showAsAction="always"
-        tools:ignore="AlwaysShowAction" />
-
+        android:actionLayout="@layout/custom_notification_cart"
+        />
 </menu>

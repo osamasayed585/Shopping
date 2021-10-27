@@ -13,7 +13,6 @@
         android:theme="@style/MyToolbarStyle"
         tools:title="For Test"
         app:titleTextColor="@color/white"
-        app:menu="@menu/account_menu"
         app:layout_collapseMode="pin" />
 
     <TextView

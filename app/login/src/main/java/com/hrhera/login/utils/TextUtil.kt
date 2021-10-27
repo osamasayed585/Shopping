@@ -8,9 +8,6 @@ import android.util.Patterns
     return this ==null || TextUtils.isEmpty(this) || !(Patterns.EMAIL_ADDRESS.matcher(this).matches())
 }
 
-
-
-
 fun String?.isInvalidPassword(): Boolean {
     return this ==null || TextUtils.isEmpty(this) || this.length<6
 }

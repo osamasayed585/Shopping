@@ -20,7 +20,14 @@
         android:id="@+id/navigation_account"
         android:name="com.example.shopping.ui.account.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_message"
         android:name="com.example.shopping.ui.message.MessageFragment"
@@ -28,12 +35,12 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.shopping.FavouriteFragment"
+        android:name="com.example.shopping.ui.favourit.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.example.shopping.OrdersFragment"
+        android:name="com.example.shopping.ui.orders.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
 
