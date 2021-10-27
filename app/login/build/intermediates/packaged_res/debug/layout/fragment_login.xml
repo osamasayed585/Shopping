@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/welcome_Color"
+    android:paddingTop="?attr/actionBarSize"
     app:layout_constraintEnd_toEndOf="parent"
     tools:context="com.hrhera.login.ui.fragment.login.LoginFragment">
 
 
     <ImageView
-        android:id="@+id/imageView"
+
+        android:id="@+id/logoImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
@@ -26,18 +28,20 @@
         style="@style/RedHUGEText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="24dp"
         android:text="@string/shopping"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/shape_login_and_register"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -92,29 +96,28 @@
 
 
         <TextView
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
             android:id="@+id/errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textColor="@color/red"
-             />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout" />
+
         <Button
 
             android:id="@+id/btnLogin"
+            style="@style/authanticationButtons"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStart_10"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/marginEnd_10"
             android:background="@drawable/shape_button_blue"
-            android:layout_marginTop="24dp"
-            android:text="@string/login"
             android:gravity="center"
+            android:text="@string/login"
             android:textColor="@color/white"
-            style ="@style/authanticationButtons"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -171,7 +174,8 @@
             android:src="@drawable/ic_facebook"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginWith" />
+            app:layout_constraintTop_toBottomOf="@+id/loginWith"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -182,7 +186,8 @@
             android:src="@drawable/ic_google"
             app:layout_constraintEnd_toStartOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/loginWith" />
+            app:layout_constraintTop_toBottomOf="@+id/loginWith"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -195,7 +200,8 @@
             android:src="@drawable/ic_twitter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/loginWith" />
+            app:layout_constraintTop_toBottomOf="@+id/loginWith"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/login_cancel"

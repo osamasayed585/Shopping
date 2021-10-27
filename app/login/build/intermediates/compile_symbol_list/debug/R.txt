@@ -567,6 +567,7 @@ int attr itemTextColor 0x0
 int attr keyPositionType 0x0
 int attr keyboardIcon 0x0
 int attr keylines 0x0
+int attr lStar 0x0
 int attr labelBehavior 0x0
 int attr labelStyle 0x0
 int attr labelVisibilityMode 0x0
@@ -2025,6 +2026,7 @@ int id baseline 0x0
 int id bestChoice 0x0
 int id blocking 0x0
 int id bottom 0x0
+int id bottomCard 0x0
 int id bounce 0x0
 int id btnLogin 0x0
 int id buttonPanel 0x0
@@ -2118,7 +2120,6 @@ int id icon_group 0x0
 int id ignore 0x0
 int id ignoreRequest 0x0
 int id image 0x0
-int id imageView 0x0
 int id imageView3 0x0
 int id imageView4 0x0
 int id imageView5 0x0
@@ -2128,6 +2129,10 @@ int id info 0x0
 int id invisible 0x0
 int id inward 0x0
 int id italic 0x0
+int id item1 0x0
+int id item2 0x0
+int id item3 0x0
+int id item4 0x0
 int id item_touch_helper_previous_elevation 0x0
 int id jumpToEnd 0x0
 int id jumpToStart 0x0
@@ -2148,6 +2153,7 @@ int id login_cancel 0x0
 int id login_email 0x0
 int id login_progressBar 0x0
 int id login_registration 0x0
+int id logoImageView 0x0
 int id main_graph 0x0
 int id masked 0x0
 int id match_constraint 0x0
@@ -2549,6 +2555,8 @@ int layout text_view_with_line_height_from_layout 0x0
 int layout text_view_with_line_height_from_style 0x0
 int layout text_view_with_theme_line_height 0x0
 int layout text_view_without_line_height 0x0
+int menu example_menu 0x0
+int menu example_menu2 0x0
 int navigation main_graph 0x0
 int plurals mtrl_badge_content_description 0x0
 int string Do_not 0x0
@@ -3866,10 +3874,12 @@ int styleable CollapsingToolbarLayout_toolbarId 19
 int[] styleable CollapsingToolbarLayout_Layout { 0x0, 0x0 }
 int styleable CollapsingToolbarLayout_Layout_layout_collapseMode 0
 int styleable CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier 1
-int[] styleable ColorStateListItem { 0x0, 0x101031f, 0x10101a5 }
+int[] styleable ColorStateListItem { 0x0, 0x101031f, 0x10101a5, 0x1010647, 0x0 }
 int styleable ColorStateListItem_alpha 0
 int styleable ColorStateListItem_android_alpha 1
 int styleable ColorStateListItem_android_color 2
+int styleable ColorStateListItem_android_lStar 3
+int styleable ColorStateListItem_lStar 4
 int[] styleable CompoundButton { 0x1010107, 0x0, 0x0, 0x0 }
 int styleable CompoundButton_android_button 0
 int styleable CompoundButton_buttonCompat 1

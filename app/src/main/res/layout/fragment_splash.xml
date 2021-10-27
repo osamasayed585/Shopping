@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.453" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
@@ -57,7 +57,6 @@
         android:text="@string/login"
         android:textColor="@color/black"
         android:theme="@style/authanticationButtons"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/btSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -74,7 +73,6 @@
         android:text="@string/signUp"
         android:textColor="@color/black"
         android:theme="@style/authanticationButtons"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
