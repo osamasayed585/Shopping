@@ -13,8 +13,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentLoginBinding
 import com.hrhera.login.model.data.Data
+import com.hrhera.login.utils.AnimationUtil.slideDown
+import com.hrhera.login.utils.AnimationUtil.slideUp
 import com.hrhera.login.utils.LoginStates
-import androidx.core.view.isVisible as isVisible1
+import kotlinx.coroutines.*
 
 
 class LoginFragment : Fragment() {
@@ -61,6 +63,33 @@ class LoginFragment : Fragment() {
                 else -> {
                     initProgressBar(it != LoginStates.SUCCESS())
                 }
+            }
+        }
+
+
+        initViewAnimation()
+
+
+    }
+
+
+    @DelicateCoroutinesApi
+    private fun initViewAnimation() {
+        binding.bottomCard.visibility = View.INVISIBLE
+        binding.tvLogo.visibility = View.INVISIBLE
+        binding.imageView.visibility = View.INVISIBLE
+        GlobalScope.launch {
+            delay(100)
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.bottomCard.slideUp(800)
+            }
+
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.imageView.slideDown(800)
+            }
+            delay(300)
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.tvLogo.slideDown(900)
             }
         }
     }

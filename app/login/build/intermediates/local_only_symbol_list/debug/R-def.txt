@@ -58,6 +58,7 @@ id TextInputLayout_phone
 id action_loginFragment_to_registerFragment
 id action_splashFragment_to_loginFragment
 id action_splashFragment_to_registerFragment
+id bottomCard
 id btnLogin
 id doNot
 id emailTextInputLayout
