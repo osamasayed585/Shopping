@@ -22,10 +22,13 @@
         <action
             android:id="@+id/action_splashFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/bottom_animation"
-            app:exitAnim="@anim/bottom_animation"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            />
+
+        <!--            app:enterAnim="@anim/bottom_animation"-->
+<!--            app:exitAnim="@anim/bottom_animation"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

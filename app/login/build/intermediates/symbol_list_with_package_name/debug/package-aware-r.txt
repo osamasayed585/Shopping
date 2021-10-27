@@ -2121,7 +2121,6 @@ id icon_group
 id ignore
 id ignoreRequest
 id image
-id imageView
 id imageView3
 id imageView4
 id imageView5
@@ -2155,6 +2154,7 @@ id login_cancel
 id login_email
 id login_progressBar
 id login_registration
+id logoImageView
 id main_graph
 id masked
 id match_constraint

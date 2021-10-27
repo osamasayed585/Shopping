@@ -40,9 +40,6 @@ public final class FragmentLoginBinding implements ViewBinding {
   public final TextView errorMessage;
 
   @NonNull
-  public final ImageView imageView;
-
-  @NonNull
   public final ImageView imageView3;
 
   @NonNull
@@ -70,6 +67,9 @@ public final class FragmentLoginBinding implements ViewBinding {
   public final TextView loginWith;
 
   @NonNull
+  public final ImageView logoImageView;
+
+  @NonNull
   public final TextInputLayout passwordTextInputLayout;
 
   @NonNull
@@ -78,11 +78,11 @@ public final class FragmentLoginBinding implements ViewBinding {
   private FragmentLoginBinding(@NonNull ConstraintLayout rootView,
       @NonNull ConstraintLayout bottomCard, @NonNull Button btnLogin, @NonNull TextView doNot,
       @NonNull TextInputLayout emailTextInputLayout, @NonNull TextView errorMessage,
-      @NonNull ImageView imageView, @NonNull ImageView imageView3, @NonNull ImageView imageView4,
-      @NonNull ImageView imageView5, @NonNull TextView loginCancel,
-      @NonNull TextInputEditText loginEmail, @NonNull TextInputEditText loginPassword,
-      @NonNull ProgressBar loginProgressBar, @NonNull TextView loginRegistration,
-      @NonNull TextView loginWith, @NonNull TextInputLayout passwordTextInputLayout,
+      @NonNull ImageView imageView3, @NonNull ImageView imageView4, @NonNull ImageView imageView5,
+      @NonNull TextView loginCancel, @NonNull TextInputEditText loginEmail,
+      @NonNull TextInputEditText loginPassword, @NonNull ProgressBar loginProgressBar,
+      @NonNull TextView loginRegistration, @NonNull TextView loginWith,
+      @NonNull ImageView logoImageView, @NonNull TextInputLayout passwordTextInputLayout,
       @NonNull TextView tvLogo) {
     this.rootView = rootView;
     this.bottomCard = bottomCard;
@@ -90,7 +90,6 @@ public final class FragmentLoginBinding implements ViewBinding {
     this.doNot = doNot;
     this.emailTextInputLayout = emailTextInputLayout;
     this.errorMessage = errorMessage;
-    this.imageView = imageView;
     this.imageView3 = imageView3;
     this.imageView4 = imageView4;
     this.imageView5 = imageView5;
@@ -100,6 +99,7 @@ public final class FragmentLoginBinding implements ViewBinding {
     this.loginProgressBar = loginProgressBar;
     this.loginRegistration = loginRegistration;
     this.loginWith = loginWith;
+    this.logoImageView = logoImageView;
     this.passwordTextInputLayout = passwordTextInputLayout;
     this.tvLogo = tvLogo;
   }
@@ -161,12 +161,6 @@ public final class FragmentLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
-      if (imageView == null) {
-        break missingId;
-      }
-
       id = R.id.imageView3;
       ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
       if (imageView3 == null) {
@@ -221,6 +215,12 @@ public final class FragmentLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.logoImageView;
+      ImageView logoImageView = ViewBindings.findChildViewById(rootView, id);
+      if (logoImageView == null) {
+        break missingId;
+      }
+
       id = R.id.passwordTextInputLayout;
       TextInputLayout passwordTextInputLayout = ViewBindings.findChildViewById(rootView, id);
       if (passwordTextInputLayout == null) {
@@ -234,8 +234,8 @@ public final class FragmentLoginBinding implements ViewBinding {
       }
 
       return new FragmentLoginBinding((ConstraintLayout) rootView, bottomCard, btnLogin, doNot,
-          emailTextInputLayout, errorMessage, imageView, imageView3, imageView4, imageView5,
-          loginCancel, loginEmail, loginPassword, loginProgressBar, loginRegistration, loginWith,
+          emailTextInputLayout, errorMessage, imageView3, imageView4, imageView5, loginCancel,
+          loginEmail, loginPassword, loginProgressBar, loginRegistration, loginWith, logoImageView,
           passwordTextInputLayout, tvLogo);
     }
     String missingId = rootView.getResources().getResourceName(id);

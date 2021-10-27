@@ -37,10 +37,13 @@ public final class FragmentRegisterBinding implements ViewBinding {
   public final TextInputLayout TextInputLayoutPhone;
 
   @NonNull
+  public final ConstraintLayout bottomCard;
+
+  @NonNull
   public final TextView errorMessage;
 
   @NonNull
-  public final ImageView imageView;
+  public final ImageView logoImageView;
 
   @NonNull
   public final TextView registerLoginHere;
@@ -72,19 +75,21 @@ public final class FragmentRegisterBinding implements ViewBinding {
   private FragmentRegisterBinding(@NonNull ConstraintLayout rootView,
       @NonNull TextInputLayout TextInputLayoutEmail, @NonNull TextInputLayout TextInputLayoutName,
       @NonNull TextInputLayout TextInputLayoutPassword,
-      @NonNull TextInputLayout TextInputLayoutPhone, @NonNull TextView errorMessage,
-      @NonNull ImageView imageView, @NonNull TextView registerLoginHere,
-      @NonNull TextInputEditText registrationEmail, @NonNull TextInputEditText registrationPassword,
-      @NonNull TextInputEditText registrationPhone, @NonNull ProgressBar registrationProgressBar,
-      @NonNull Button registrationRegistration, @NonNull TextInputEditText registrationUsername,
-      @NonNull TextView tvAleardy, @NonNull TextView tvLogo) {
+      @NonNull TextInputLayout TextInputLayoutPhone, @NonNull ConstraintLayout bottomCard,
+      @NonNull TextView errorMessage, @NonNull ImageView logoImageView,
+      @NonNull TextView registerLoginHere, @NonNull TextInputEditText registrationEmail,
+      @NonNull TextInputEditText registrationPassword, @NonNull TextInputEditText registrationPhone,
+      @NonNull ProgressBar registrationProgressBar, @NonNull Button registrationRegistration,
+      @NonNull TextInputEditText registrationUsername, @NonNull TextView tvAleardy,
+      @NonNull TextView tvLogo) {
     this.rootView = rootView;
     this.TextInputLayoutEmail = TextInputLayoutEmail;
     this.TextInputLayoutName = TextInputLayoutName;
     this.TextInputLayoutPassword = TextInputLayoutPassword;
     this.TextInputLayoutPhone = TextInputLayoutPhone;
+    this.bottomCard = bottomCard;
     this.errorMessage = errorMessage;
-    this.imageView = imageView;
+    this.logoImageView = logoImageView;
     this.registerLoginHere = registerLoginHere;
     this.registrationEmail = registrationEmail;
     this.registrationPassword = registrationPassword;
@@ -147,15 +152,21 @@ public final class FragmentRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.bottomCard;
+      ConstraintLayout bottomCard = ViewBindings.findChildViewById(rootView, id);
+      if (bottomCard == null) {
+        break missingId;
+      }
+
       id = R.id.errorMessage;
       TextView errorMessage = ViewBindings.findChildViewById(rootView, id);
       if (errorMessage == null) {
         break missingId;
       }
 
-      id = R.id.imageView;
-      ImageView imageView = ViewBindings.findChildViewById(rootView, id);
-      if (imageView == null) {
+      id = R.id.logoImageView;
+      ImageView logoImageView = ViewBindings.findChildViewById(rootView, id);
+      if (logoImageView == null) {
         break missingId;
       }
 
@@ -214,10 +225,10 @@ public final class FragmentRegisterBinding implements ViewBinding {
       }
 
       return new FragmentRegisterBinding((ConstraintLayout) rootView, TextInputLayoutEmail,
-          TextInputLayoutName, TextInputLayoutPassword, TextInputLayoutPhone, errorMessage,
-          imageView, registerLoginHere, registrationEmail, registrationPassword, registrationPhone,
-          registrationProgressBar, registrationRegistration, registrationUsername, tvAleardy,
-          tvLogo);
+          TextInputLayoutName, TextInputLayoutPassword, TextInputLayoutPhone, bottomCard,
+          errorMessage, logoImageView, registerLoginHere, registrationEmail, registrationPassword,
+          registrationPhone, registrationProgressBar, registrationRegistration,
+          registrationUsername, tvAleardy, tvLogo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

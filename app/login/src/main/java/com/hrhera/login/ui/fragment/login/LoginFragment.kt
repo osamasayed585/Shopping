@@ -77,7 +77,7 @@ class LoginFragment : Fragment() {
     private fun initViewAnimation() {
         binding.bottomCard.visibility = View.INVISIBLE
         binding.tvLogo.visibility = View.INVISIBLE
-        binding.imageView.visibility = View.INVISIBLE
+        binding.logoImageView.visibility = View.INVISIBLE
         GlobalScope.launch {
             delay(100)
             GlobalScope.launch(Dispatchers.Main) {
@@ -85,7 +85,7 @@ class LoginFragment : Fragment() {
             }
 
             GlobalScope.launch(Dispatchers.Main) {
-                binding.imageView.slideDown(800)
+                binding.logoImageView.slideDown(800)
             }
             delay(300)
             GlobalScope.launch(Dispatchers.Main) {
