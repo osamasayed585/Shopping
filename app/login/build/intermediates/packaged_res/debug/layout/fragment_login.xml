@@ -96,12 +96,6 @@
 
 
         <TextView
-<<<<<<< HEAD
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
-=======
->>>>>>> 9f220f977ad08fc144b7f4623ec12c0f263565e3
             android:id="@+id/errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

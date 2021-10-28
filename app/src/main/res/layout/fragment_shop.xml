@@ -28,7 +28,7 @@
             android:gravity="center"
             android:text="@string/category"
             android:textColor="@color/white"
-            app:drawableEndCompat="@drawable/ic_left_arrow"
+            app:drawableEndCompat="@drawable/icchevron_left_24"
             app:drawableTint="@color/white" />
 
         <Spinner

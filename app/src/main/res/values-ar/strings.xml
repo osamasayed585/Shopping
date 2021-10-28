@@ -34,5 +34,8 @@
     <string name="logout">Logout</string>
     <string name="my_orders">My Orders</string>
     <string name="actionbar_spinner">ActionBar Spinner</string>
+    <string name="product_image">Proudct Image</string>
+    <string name="skip_now">Skip Now</string>
+    <string name="category">Category</string>
 
 </resources>
