@@ -7,8 +7,7 @@ import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -16,10 +15,15 @@ import com.example.shopping.R
 import com.example.shopping.databinding.FragmentRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import com.hrhera.login.model.data.Data
+import com.hrhera.login.utils.AnimationUtil.slideUp
 import com.hrhera.login.utils.Constants
 import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
 import com.hrhera.login.utils.RegisterState
 import com.hrhera.login.utils.Static
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class RegisterFragment : Fragment() {
@@ -48,10 +52,10 @@ class RegisterFragment : Fragment() {
             initRegister()
         }
 
-        registerViewModel.registerUserLiveData.observe(viewLifecycleOwner,{
+        registerViewModel.registerUserLiveData.observe(viewLifecycleOwner, {
             initProgressBar(it == RegisterState.LOADING())
 
-            when(it) {
+            when (it) {
                 is RegisterState.EMAIL_ERROR -> {
                     binding.TextInputLayoutEmail.error = it.error
                 }
@@ -66,11 +70,24 @@ class RegisterFragment : Fragment() {
                     binding.errorMessage.text = it.error
                 }
                 else -> {
-                    initProgressBar( it != RegisterState.SUCCESS())
+                    initProgressBar(it != RegisterState.SUCCESS())
                 }
             }
         })
 
+        initViewAnimation()
+
+
+    }
+
+    private fun initViewAnimation() {
+        binding.bottomCard.visibility = INVISIBLE
+        GlobalScope.launch {
+            delay(100)
+            GlobalScope.launch(Dispatchers.Main) {
+                binding.bottomCard.slideUp(1000)
+            }
+        }
     }
 
     private fun initRegister() {

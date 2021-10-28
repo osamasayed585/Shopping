@@ -14,18 +14,21 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/bottom_animation"
+            app:destination="@id/loginFragment"/>
+         <!--   app:enterAnim="@anim/bottom_animation"
             app:exitAnim="@anim/bottom_animation"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right"/>-->
         <action
             android:id="@+id/action_splashFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:enterAnim="@anim/bottom_animation"
-            app:exitAnim="@anim/bottom_animation"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            />
+
+        <!--            app:enterAnim="@anim/bottom_animation"-->
+<!--            app:exitAnim="@anim/bottom_animation"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -35,7 +38,6 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
-
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

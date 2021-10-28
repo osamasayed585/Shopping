@@ -58,11 +58,11 @@ id TextInputLayout_phone
 id action_loginFragment_to_registerFragment
 id action_splashFragment_to_loginFragment
 id action_splashFragment_to_registerFragment
+id bottomCard
 id btnLogin
 id doNot
 id emailTextInputLayout
 id errorMessage
-id imageView
 id imageView3
 id imageView4
 id imageView5
@@ -73,6 +73,7 @@ id login_cancel
 id login_email
 id login_progressBar
 id login_registration
+id logoImageView
 id main_graph
 id passwordTextInputLayout
 id registerFragment

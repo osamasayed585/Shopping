@@ -1,1 +1,1 @@
-[{"navFile":"src\\main\\res\\navigation\\main_graph.xml","javaFiles":["com.example.shopping.ui.splash.SplashFragmentDirections","com.hrhera.login.ui.fragment.login.LoginFragmentDirections"]}]
+[{"navFile":"src/main/res/navigation/main_graph.xml","javaFiles":["com.example.shopping.ui.splash.SplashFragmentDirections","com.hrhera.login.ui.fragment.login.LoginFragmentDirections"]}]
