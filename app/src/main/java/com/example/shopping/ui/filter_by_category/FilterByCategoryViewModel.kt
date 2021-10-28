@@ -3,13 +3,12 @@ package com.example.shopping.ui.filter_by_category
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.model.remote.ShopRemoteBuilder
 import com.example.shopping.model.remote.ShoppingAPI
 import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
-import com.hrhera.login.model.remote.RemoteRepositoryImp
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class FilterByCategoryViewModel(application: Application) : AndroidViewModel(application) {
@@ -17,12 +16,28 @@ class FilterByCategoryViewModel(application: Application) : AndroidViewModel(app
     private val repository = ProductsRemoteRepositoryImp(service)
 
     val categoryItemsMutableLiveData = MutableLiveData<List<ProductItem>>()
+    val loaderMutableLiveData = MutableLiveData<Boolean>()
 
     fun updateDataByCategoryId(categoryId: String) {
+        loaderMutableLiveData.value=true
+        categoryItemsMutableLiveData.value= listOf()
+        viewModelScope.launch {
+            val value = repository.getAllCategoryProductsItemsByID(categoryId)
+            loaderMutableLiveData.value=false
+            categoryItemsMutableLiveData.value = value.body()
 
+        }
     }
 
     fun updateDataByCategoryName(categoryName: String) {
+        loaderMutableLiveData.value=true
+        categoryItemsMutableLiveData.value= listOf()
+        viewModelScope.launch {
+
+            val value = repository.getAllCategoryProductsItemsByName(categoryName)
+            loaderMutableLiveData.value=false
+            categoryItemsMutableLiveData.value = value.body()
+        }
 
     }
 
@@ -30,7 +45,7 @@ class FilterByCategoryViewModel(application: Application) : AndroidViewModel(app
     val categoryMutableLiveData = MutableLiveData<List<CategoryItem>>()
 
     init {
-        GlobalScope.launch {
+        viewModelScope.launch {
             categoryMutableLiveData.postValue(repository.getAllCategory().body())
         }
     }

@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.filter_by_category.FilterByCategoryFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemList"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/_12sdp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Filter By Category Name OR ID " />
+        android:layout_height="match_parent"/>
 
 
     <ProgressBar
+        android:id="@+id/productLoader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="?attr/actionBarSize"
