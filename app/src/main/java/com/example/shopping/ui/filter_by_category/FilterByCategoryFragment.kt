@@ -1,17 +1,17 @@
 package com.example.shopping.ui.filter_by_category
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.shopping.R
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shopping.databinding.FragmentFilterByCategoryBinding
+import com.example.shopping.ui.adapter.ProductsItemAdapter
+import com.example.shopping.ui.main.MainActivity
 
 class FilterByCategoryFragment : Fragment() {
-
-
 
     private var _binding: FragmentFilterByCategoryBinding? = null
     private val binding get() = _binding!!
@@ -23,16 +23,25 @@ class FilterByCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFilterByCategoryBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        sherViewModel = (requireActivity() as MainActivity).sherViewModel
+        val adapter = ProductsItemAdapter()
+        binding.itemList.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.itemList.adapter = adapter
 
+        sherViewModel.categoryItemsMutableLiveData.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
 
-
-
-
+        sherViewModel.loaderMutableLiveData.observe(viewLifecycleOwner) {
+            binding.productLoader.isVisible=it
+        }
+    }
 
 
 }

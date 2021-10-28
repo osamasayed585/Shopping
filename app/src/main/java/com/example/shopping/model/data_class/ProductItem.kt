@@ -7,6 +7,7 @@ data class ProductItem (
     @SerializedName("title") var title : String="",
     @SerializedName("price") var price : String="",
     @SerializedName("category") var category : String="",
+    @SerializedName("categoryId") var categoryId : String="",
     @SerializedName("salesCount") var salesCount : String="",
     @SerializedName("rating") var rating : Int=0,
     @SerializedName("barcode") var barcode : String="",

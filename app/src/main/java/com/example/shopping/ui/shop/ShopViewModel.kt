@@ -9,6 +9,7 @@ import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.model.remote.ShopRemoteBuilder
 import com.example.shopping.model.remote.ShoppingAPI
 import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
+import com.example.shopping.model.repository.TestData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
