@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentShopBinding
@@ -23,6 +25,7 @@ class ShopFragment : Fragment() {
 
     private lateinit var shopViewModel: ShopViewModel
     private lateinit var sharedModel: FilterByCategoryViewModel
+
     private var _binding: FragmentShopBinding? = null
     private val binding get() = _binding!!
 
@@ -56,6 +59,29 @@ class ShopFragment : Fragment() {
         handleCategoryView()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.search -> {
+                    findNavController().navigate(R.id.action_navigation_shopping_cart_to_searchFragment)
+                    true
+                }
+                R.id.favourite -> {
+                    Toast.makeText(context, "favourite", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.order -> {
+                    Toast.makeText(context, "order", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
     }
 
     private fun handleCategoryView() {
@@ -115,4 +141,37 @@ class ShopFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    /*
+   *
+   *  Why these functions are not working
+   *
+   * is there something wrong.??
+   * */
+
+
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.home_and_shop_menu,menu)
+//        super.onCreateOptionsMenu(menu, inflater)
+//    }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            R.id.search -> {
+//                Toast.makeText(context, "search", Toast.LENGTH_SHORT).show()
+//                return true
+//            }
+//            R.id.favourite -> {
+//                Toast.makeText(context, "favourite", Toast.LENGTH_SHORT).show()
+//                return true
+//            }
+//            R.id.order -> {
+//                Toast.makeText(context, "order", Toast.LENGTH_SHORT).show()
+//                return true
+//            }
+//            else -> {
+//                return false
+//            }
+//        }
+//    }
 }
