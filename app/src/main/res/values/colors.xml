@@ -12,5 +12,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="activeBottomColor">#D5F87E</color>
     <color name="activeBottomColorTrans">#86D5F87E</color>
+    <color name="gray">#ACACAC</color>
 
 </resources>

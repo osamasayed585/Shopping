@@ -89,4 +89,16 @@
         <item name="android:paddingEnd">5dip</item>
         <item name="colorControlNormal">@color/white</item>
     </style>
+
+
+    <style name="ButtonStyle"  parent="@android:style/Widget.Button">
+        <item name="colorPrimary">@color/white</item>
+        <item name="background">@drawable/curve_all</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+
+
+
+
 </resources>

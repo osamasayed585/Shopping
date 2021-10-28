@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shopping.databinding.FragmentFilterByCategoryBinding
 import com.example.shopping.ui.adapter.ProductsItemAdapter
 import com.example.shopping.ui.main.MainActivity
+import com.squareup.picasso.Picasso
 
 class FilterByCategoryFragment : Fragment() {
 
@@ -39,8 +40,14 @@ class FilterByCategoryFragment : Fragment() {
         }
 
         sherViewModel.loaderMutableLiveData.observe(viewLifecycleOwner) {
-            binding.productLoader.isVisible=it
+            binding.productLoader.isVisible = it
         }
+        binding.topView.visibility=View.GONE
+        sherViewModel.categoryItemMutableLiveData.observe(viewLifecycleOwner) {
+            Picasso.get().load(it.image).fit().centerCrop().into(binding.categoryImage)
+            binding.categoryTitle.text = it.title
+        }
+
     }
 
 

@@ -25,7 +25,6 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.profileLogout.setOnClickListener {
-            // toDo I'll implementation this a code next time
             Toast.makeText(context, "I'll implementation this a code next time", Toast.LENGTH_SHORT).show()
         }
         initToolbar(binding.toolbar, R.string.account,false)

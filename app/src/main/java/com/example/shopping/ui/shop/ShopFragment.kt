@@ -109,7 +109,6 @@ class ShopFragment : Fragment() {
         return false
     }
 
-
     private fun handleCategoryView() {
         val categoryAdapter = CategoryRecyclerAdapter()
         binding.categoryLayout.categoryRecycler.layoutManager =
@@ -134,7 +133,6 @@ class ShopFragment : Fragment() {
             if (!binding.categoryContainer.isVisible) {
                 img?.setBounds(0, 0, 60, 60)
                 binding.categoryTitle.setCompoundDrawablesRelative(null, null, img, null)
-                //                binding.categoryContainer.slideDown()
                 binding.categoryContainer.visibility = View.VISIBLE
                 return@setOnClickListener
             }
@@ -151,13 +149,9 @@ class ShopFragment : Fragment() {
                 binding.categoryTitle.text = item.title
                 binding.categoryTitle.callOnClick()
 
-                //this
-                sharedModel.updateDataByCategoryId(item.id)
-                // or this
-                sharedModel.updateDataByCategoryName(item.title)
+                sharedModel.setCategory(item)
 
                 (requireActivity() as MainActivity).navController.navigate(R.id.filterByCategoryFragment)
-
             }
         }
 

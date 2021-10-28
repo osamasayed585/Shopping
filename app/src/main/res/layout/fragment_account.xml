@@ -40,7 +40,8 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_camera"
-        app:backgroundTint="@color/white"
+        android:tint="@color/white"
+        app:rippleColor="@color/activeBottomColor"
         app:borderWidth="1dp"
         app:elevation="6dp"
         app:fabCustomSize="50dp"
@@ -84,6 +85,8 @@
         app:layout_constraintTop_toBottomOf="@+id/Profile_Welcome" />
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
         android:id="@+id/profile_Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,6 +106,8 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
         android:id="@+id/profile_Language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,6 +130,8 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_Account" />
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
         android:id="@+id/profile_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -146,6 +153,9 @@
 
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
+
         android:id="@+id/profile_Favourite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -166,6 +176,8 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_password" />
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
         android:id="@+id/profile_About"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -185,6 +197,8 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_Favourite" />
 
     <Button
+        android:elevation="@dimen/_4sdp"
+        style="@style/ButtonStyle"
         android:id="@+id/profile_Logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

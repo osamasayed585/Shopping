@@ -6,21 +6,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.shopping.model.data_class.ProductItem
-import com.example.shopping.model.remote.ShopRemoteBuilder
-import com.example.shopping.model.remote.ShoppingAPI
-import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
+import com.example.shopping.model.repository.DataRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ShopViewModel(application: Application) : AndroidViewModel(application) {
+    /*
+
+    * * ViewModel must doesn't know where the data comes from
+
+    */
+    private var repository=DataRepository()
+
+
     private var _listOfProducts: MutableLiveData<List<ProductItem>> =
         MutableLiveData<List<ProductItem>>()
     private val _shopItemLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-    private var repository: ProductsRemoteRepositoryImp
+
 
     init {
-        val service = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
-        repository = ProductsRemoteRepositoryImp(service)
         _listOfProducts.value = listOf()
         setData()
     }
@@ -35,9 +39,9 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
 
             viewModelScope.launch(Dispatchers.Main) {
                 _shopItemLoading.value = false
-                _listOfProducts.value = items.body()
+                _listOfProducts.value = items
                 mutableListOfItem.clear()
-                mutableListOfItem.addAll(items.body()!!)
+                mutableListOfItem.addAll(items)
             }
         }
 
@@ -53,7 +57,7 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
         if (queryName.length > 2) {
             viewModelScope.launch {
                 val value = repository.filterProductByQueryName(queryName)
-                _listOfProducts.value = value.body()
+                _listOfProducts.value = value
             }
             return
         }
