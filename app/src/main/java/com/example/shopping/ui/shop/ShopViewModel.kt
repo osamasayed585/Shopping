@@ -9,7 +9,6 @@ import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.model.remote.ShopRemoteBuilder
 import com.example.shopping.model.remote.ShoppingAPI
 import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
-import com.example.shopping.model.repository.TestData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -26,6 +25,7 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
         setData()
     }
 
+    private val mutableListOfItem = mutableListOf<ProductItem>()
 
     private fun setData() {
         _shopItemLoading.value = true
@@ -36,6 +36,8 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
             viewModelScope.launch(Dispatchers.Main) {
                 _shopItemLoading.value = false
                 _listOfProducts.value = items.body()
+                mutableListOfItem.clear()
+                mutableListOfItem.addAll(items.body()!!)
             }
         }
 
@@ -44,4 +46,23 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
 
     val listOfProductsLiveData: LiveData<List<ProductItem>> = _listOfProducts
     val shopItemsLoadingLiveData: LiveData<Boolean> = _shopItemLoading
+
+
+    fun filterByProductName(queryName: String) {
+
+        if (queryName.length > 2) {
+            viewModelScope.launch {
+                val value = repository.filterProductByQueryName(queryName)
+                _listOfProducts.value = value.body()
+            }
+            return
+        }
+
+        _listOfProducts.value = mutableListOfItem
+
+    }
 }
+
+
+
+

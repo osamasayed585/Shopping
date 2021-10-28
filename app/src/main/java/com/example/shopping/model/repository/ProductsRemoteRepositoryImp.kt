@@ -1,5 +1,6 @@
 package com.example.shopping.model.repository
 
+import android.app.DownloadManager
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.remote.ShoppingAPI
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +28,10 @@ class ProductsRemoteRepositoryImp(private val api: ShoppingAPI) : ProductRemoteR
 
     override suspend fun getAllCategoryProductsItemsByName(name: String) = withContext(Dispatchers.IO) {
         TestData.getCategoryProductByName(name)
+    }
+
+  override suspend fun filterProductByQueryName(queryName: String) = withContext(Dispatchers.IO) {
+        TestData.filterProductByQueryName(queryName)
     }
 
 }

@@ -1,26 +1,197 @@
 package com.example.shopping.model.repository
 
 import com.example.shopping.model.data_class.CategoryItem
+import com.example.shopping.model.data_class.ProductItem
+import kotlinx.coroutines.delay
 import retrofit2.Response
 import java.util.*
 
 object TestData {
+    private val listOfCategoryItem = arrayListOf(
+        CategoryItem(
+            "laptop",
+            "https://api.time.com/wp-content/uploads/2017/05/laptops.jpg",
+            "1"
+        ),
+        CategoryItem(
+            "cameras",
+            "https://3.img-dpreview.com/files/p/E~TS590x401~articles/1395652228/Best-2010s-03_1.jpeg",
+            "2"
+        ),
+        CategoryItem(
+            "keyboards",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRABnop9jSquNIRWOMDAX_AgdlNQpyxg0hnIw&usqp=CAU",
+            "3"
+        ),
+        CategoryItem(
+            "mouse",
+            "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2016/03/replace-old-mouse.jpg",
+            "4"
+        ),
+        CategoryItem(
+            "GiftS",
+            "https://cdn0.iconfinder.com/data/icons/toy-10/64/music_box-multimedia-sound_box-toy-512.png",
+            "5"
+        ),
+        CategoryItem(
+            "Test Title",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IIyOeE1Lh76aTtBgvYugQYMkIJsE67_cOw&usqp=CAU",
+            "6"
+        ),
+        CategoryItem(
+            "Gift",
+            "https://d3tvemk8zf61cc.cloudfront.net/homepage/pop_pngs/hp-brain-icon.png",
+            "7"
+        ),
+        CategoryItem(
+            "Gift12",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrWfzcHF0VgAr45E6NybfTgk7bv5lhWj9nfw&usqp=CAU",
+            "8"
+        ),
+        CategoryItem(
+            "Gift15",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8QSctRqJGwMhp7OFxzhi6BRGAJcd3pc7_fg&usqp=CAU",
+            "9"
+        ),
+        CategoryItem(
+            "Gift20",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDF_ODi5M11Gc5vGzOmAmGUOt-u-X1sk-dVw&usqp=CAU",
+            "10"
+        ),
+        CategoryItem(
+            "Gift30",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwN69NsmE7ZqhZ0i3M8Yuco_h5ZEeQwaJzkA&usqp=CAU",
+            "11"
+        ),
 
-    fun getCategory(): Response<List<CategoryItem>> {
-        return Response.success( arrayListOf(
-            CategoryItem("Toy","https://cdn0.iconfinder.com/data/icons/leto-devices-2/64/tamagotchi_toy-512.png","1"),
-            CategoryItem("Toy2","https://e7.pngegg.com/pngimages/1023/885/png-clipart-toy-graphy-illustration-i-lovely-toy-box-food-photography-thumbnail.png","2"),
-            CategoryItem("Small","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVypCoaL1R2Q3k-F3tLIODdtHNayLZCi4QqQ&usqp=CAU","3"),
-            CategoryItem("Gift","https://png.pngtree.com/element_our/20190601/ourmid/pngtree-cartoon-toy-icon-free-illustration-image_1345995.jpg","4"),
-            CategoryItem("GiftS","https://cdn0.iconfinder.com/data/icons/toy-10/64/music_box-multimedia-sound_box-toy-512.png","5"),
-            CategoryItem("Test Title","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IIyOeE1Lh76aTtBgvYugQYMkIJsE67_cOw&usqp=CAU","6"),
-            CategoryItem("Gift","https://d3tvemk8zf61cc.cloudfront.net/homepage/pop_pngs/hp-brain-icon.png","7"),
-            CategoryItem("Gift12","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrWfzcHF0VgAr45E6NybfTgk7bv5lhWj9nfw&usqp=CAU","8"),
-            CategoryItem("Gift15","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8QSctRqJGwMhp7OFxzhi6BRGAJcd3pc7_fg&usqp=CAU","9"),
-            CategoryItem("Gift20","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDF_ODi5M11Gc5vGzOmAmGUOt-u-X1sk-dVw&usqp=CAU","10"),
-            CategoryItem("Gift30","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwN69NsmE7ZqhZ0i3M8Yuco_h5ZEeQwaJzkA&usqp=CAU","11"),
+        )
+    private val listOfItems = mutableListOf<ProductItem>()
+    private fun loadData() {
+        val listOfImage = listOf(
+            //laptop
+            "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/me-africa/eg-en/mkt/plp/laptops/matebook-x-pro/matebook-x-pro.jpg",
+            "https://id-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/2/1/21c1_omen_vanellope_16_60w_nonnumpad_4zone_lcd_micasilver_front_1.png",
+            "https://cdn.thewirecutter.com/wp-content/uploads/2020/04/laptops-lowres-2x1-.jpg?auto=webp&quality=75&crop=2:1&width=1024",
+            "https://cdn.vox-cdn.com/thumbor/lRwetR_dg8WBLFIUPzY7l0QYCaI=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22411713/cfaulkner_20210326_4491_0006.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbxNrQRXPMWqtbKvU9GPL8BGQVhxLjPSaIg&usqp=CAU",
 
-        ));
+            //camera
+            "https://i.pcmag.com/imagery/roundups/018cwxjHcVMwiaDIpTnZJ8H-23.1570842461.fit_lim.size_1200x630.jpg",
+            "https://www.sony.com/image/7a1d1a81a42b91c0bb26e7061cc7b999?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+            "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6204/6204310_sd.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb7NRdgoga1IQ1YviEP6LypSXRPDnL6hGKNA&usqp=CAU",
+            "https://media.wired.com/photos/5d31f0327e21db0008efc4ee/master/pass/Gear-Sony-RX100VI-SOURCE-Sony.jpg",
+
+            //keyboards
+            "https://m.media-amazon.com/images/I/71nRfZNacyL._AC_SL1500_.jpg",
+            "https://media.steelseriescdn.com/thumbs/catalogue/products/01101-apex-7-red-switch/2ff2d4b8587d4af3aeeae2e5fbb4a698.png.350x280_q100_crop-fit_optimize.png",
+            "https://i.pcmag.com/imagery/reviews/01t7XnV3GQOMNj6k7uIunhp-1.1606229774.fit_lim.size_625x365.jpg",
+            "https://cdn.vox-cdn.com/thumbor/G1xlcGD-NAc9xYn5s0uI9fD-DxE=/0x451:6300x3749/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22219694/alloyorigins60.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRif8ZMLMo8G5KM74apW-xiyVH7y-ZKUtCTxA&usqp=CAU",
+            //mouse
+            "https://thermaltake.azureedge.net/pub/media/wysiwyg/key3/img/L20rgbmouse/aa.png",
+            "https://5.imimg.com/data5/SELLER/Default/2020/11/UQ/ZH/FW/80385951/logitech-g-402-hyperion-fury-wired-gaming-mouse-500x500.jpg",
+            "https://m.media-amazon.com/images/I/41pN96P0kSL._AC_SY780_.jpg",
+            "https://m.media-amazon.com/images/I/51sL3ZYNqKS._AC_SY450_.jpg",
+            "https://m.media-amazon.com/images/I/61SAa5qiaIL._AC_SL1000_.jpg",
+
+            )
+
+        listOfItems.clear()
+        for ((i, x) in listOfImage.withIndex()) {
+            listOfItems.add(
+                ProductItem(
+                    image1 = x,
+                    price = "${i * 25}",
+                    title = when {
+                        i < 5 -> {
+                            "laptop $i"
+                        }
+                        i < 10 -> {
+                            "cameras $i"
+                        }
+                        i < 15 -> {
+                            "keyboards $i"
+                        }
+                        else -> {
+                            "mouse $i"
+                        }
+                    },
+                    category = when {
+                        i < 5 -> {
+                            "laptop"
+                        }
+                        i < 10 -> {
+                            "cameras"
+                        }
+                        i < 15 -> {
+                            "keyboards"
+                        }
+                        else -> {
+                            "mouse"
+                        }
+                    },
+                    categoryId = when {
+                        i < 5 -> {
+                            "1"
+                        }
+                        i < 10 -> {
+                            "2"
+                        }
+                        i < 15 -> {
+                            "3"
+                        }
+                        else -> {
+                            "4"
+                        }
+                    },
+                    rating = Random().nextInt(5),
+                    barcode = "Bar Code $i",
+                )
+            )
+        }
+
+    }
+
+
+    suspend fun getCategory(): Response<List<CategoryItem>> {
+        delay(2000)
+        return Response.success(listOfCategoryItem)
+
+    }
+
+    suspend fun getCategoryProductByID(productId: String): Response<List<ProductItem>> {
+        delay(2000)
+
+        return Response.success(listOfItems.filter { it.categoryId == productId })
+    }
+
+    suspend fun getCategoryProductByName(productName: String): Response<List<ProductItem>> {
+        delay(2000)
+
+        return Response.success(
+            listOfItems.filter { it.category == productName }
+
+
+        )
+    }
+
+
+    suspend fun getAllProducts(): Response<List<ProductItem>> {
+        loadData()
+        delay(2000)
+        listOfItems.shuffle()
+        return Response.success(
+            listOfItems as List<ProductItem>
+        )
+
+    }
+
+     fun filterProductByQueryName(query: String): Response<List<ProductItem>> {
+
+        return Response.success(
+            listOfItems.filter { it.title.contains(query) }
+        )
 
     }
 
