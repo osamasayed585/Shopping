@@ -1,4 +1,4 @@
-package com.example.shopping.ui.dashboard
+package com.example.shopping.ui.shop
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -37,35 +37,6 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
                 _listOfProducts.value = items.body()
             }
         }
-
-
-        /*viewModelScope.launch {
-            viewModelScope.launch(Dispatchers.Main) {
-                _shopItemLoading.value = false
-                _listOfProducts.value = listOf(
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                    ProductItem(),
-                )
-
-            }
-        }*/
 
     }
 

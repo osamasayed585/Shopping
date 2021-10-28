@@ -13,9 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_shopping_cart"
-        android:name="com.example.shopping.ui.dashboard.ShopFragment"
+        android:name="com.example.shopping.ui.shop.ShopFragment"
         android:label="@string/title_shopping"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_navigation_shopping_cart_to_filterByCategoryFragment"
+            app:destination="@id/filterByCategoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.shopping.ui.account.AccountFragment"
@@ -36,5 +40,10 @@
         android:name="com.example.shopping.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
+    <fragment
+        tools:layout="@layout/fragment_filter_by_category"
+        android:id="@+id/filterByCategoryFragment"
+        android:name="com.example.shopping.ui.filter_by_category.FilterByCategoryFragment"
+        android:label="FilterByCategoryFragment" />
 
 </navigation>
