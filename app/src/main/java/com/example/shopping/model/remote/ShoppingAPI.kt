@@ -8,5 +8,8 @@ interface ShoppingAPI {
     @GET("shop")
     suspend fun getAllProducts(): Response<List<ProductItem>>
 
+    @GET("category")
+    suspend fun getAllCategory(): Response<List<ProductItem>>
+
 
 }

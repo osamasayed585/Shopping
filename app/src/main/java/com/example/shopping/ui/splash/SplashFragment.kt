@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
@@ -25,11 +28,6 @@ import kotlinx.coroutines.launch
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initStatusBar(false)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +36,7 @@ class SplashFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentSplashBinding.inflate(inflater, container, false)
+        initStatusBar(false)
         return binding.root
     }
 
@@ -57,6 +56,7 @@ class SplashFragment : Fragment() {
         val statusLogin = sharedPreferences.getBoolean("STATUS_LOGIN", false)
         val statusRegister = sharedPreferences.getBoolean("STATUS_REGISTER", false)
 
+
         Handler(Looper.getMainLooper()).postDelayed({
             if (statusLogin || statusRegister) {
                 Static.onLogin?.onDone()
@@ -72,21 +72,37 @@ class SplashFragment : Fragment() {
                 }
             }
         }, 3000)
+        
 
-    }
-    private fun initButtons(state: Boolean) {
-        if (state) {
-            binding.skipLogin.visibility = View.VISIBLE
-            binding.btLogin.visibility = View.VISIBLE
-            binding.btSignUp.visibility = View.VISIBLE
-        }
     }
 
     private fun initStatusBar(state: Boolean) {
         if (state) {
-            (requireActivity() as MainActivity).supportActionBar?.show()
+            showSystemUI()
+
         } else {
-            requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+            hideSystemUI()
         }
+    }
+
+
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
+        WindowInsetsControllerCompat(
+            requireActivity().window,
+            binding.root
+        ).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+    }
+
+    private fun showSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, true)
+        WindowInsetsControllerCompat(
+            requireActivity().window,
+            binding.root
+        ).show(WindowInsetsCompat.Type.systemBars())
     }
 }

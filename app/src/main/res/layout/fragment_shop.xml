@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.ShopFragment">
+    tools:context=".ui.shop.ShopFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/MyToolbarStyle"
@@ -18,6 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/home_and_shop_menu"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/categoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_Color"
+            android:drawablePadding="@dimen/_2sdp"
+            android:gravity="center"
+            android:text="@string/category"
+            android:textColor="@color/white"
+            app:drawableEndCompat="@drawable/ic_left_arrow"
+            app:drawableTint="@color/white" />
 
         <Spinner
             android:id="@+id/toolbar_spinner"
@@ -30,8 +42,28 @@
             android:maxLines="1"
             android:spinnerMode="dropdown"
             android:theme="@style/Spinner"
+            android:visibility="gone"
             tools:ignore="RtlHardcoded" />
     </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/categoryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        <include
+
+            android:id="@+id/categoryLayout"
+            layout="@layout/category_lay_out"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     <ProgressBar
         android:id="@+id/isLoading"
@@ -50,8 +82,7 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-      />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

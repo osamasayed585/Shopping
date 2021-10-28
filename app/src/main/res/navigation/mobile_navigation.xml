@@ -15,11 +15,7 @@
         android:id="@+id/navigation_shopping_cart"
         android:name="com.example.shopping.ui.dashboard.ShopFragment"
         android:label="@string/title_shopping"
-        tools:layout="@layout/fragment_shop" >
-        <action
-            android:id="@+id/action_navigation_shopping_cart_to_searchFragment"
-            app:destination="@id/searchFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_shop" />
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.shopping.ui.account.AccountFragment"
@@ -32,18 +28,13 @@
         tools:layout="@layout/fragment_message" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.shopping.ui.favourite.FavouriteFragment"
+        android:name="com.example.shopping.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.example.shopping.ui.orders.OrdersFragment"
+        android:name="com.example.shopping.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.shopping.ui.search.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
 
 </navigation>
