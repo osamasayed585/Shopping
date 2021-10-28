@@ -80,4 +80,13 @@
         <item name="android:popupBackground">@color/white</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <!--    custom style Search menu -->
+    <style name="MenuItemStyle" parent="Widget.AppCompat.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="elevation">0dp</item>
+        <item name="android:paddingStart">3dip</item>
+        <item name="android:paddingEnd">5dip</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
 </resources>

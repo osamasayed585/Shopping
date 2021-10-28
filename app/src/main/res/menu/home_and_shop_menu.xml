@@ -11,22 +11,15 @@
         tools:ignore="AlwaysShowAction" />
 
     <item
-        android:id="@+id/favouriteFragment"
+        android:id="@+id/favourite"
         android:title="@string/my_favourite"
         android:icon="@drawable/ic_favorite"
         app:showAsAction="always" />
     <item
-        android:id="@+id/ordersFragment"
+        android:id="@+id/order"
         android:title="@string/my_orders"
         android:icon="@drawable/ic_cart"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
-
-<!--    <item-->
-<!--        android:id="@+id/spinner"-->
-<!--        android:title="@string/actionbar_spinner"-->
-<!--        app:actionViewClass="android.widget.Spinner"-->
-<!--        android:background="@color/white"-->
-<!--        app:showAsAction="always" />-->
 
 </menu>
