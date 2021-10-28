@@ -9,5 +9,11 @@ class ProductsRemoteRepositoryImp(private val api: ShoppingAPI) : ProductRemoteR
         api.getAllProducts()
     }
 
+    override suspend fun getAllCategory()= withContext(Dispatchers.IO)  {
+//        api.getAllCategory()
+        TestData.getCategory()
+    }
+
+
 
 }

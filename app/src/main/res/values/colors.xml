@@ -11,5 +11,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="activeBottomColor">#D5F87E</color>
+    <color name="activeBottomColorTrans">#86D5F87E</color>
 
 </resources>
