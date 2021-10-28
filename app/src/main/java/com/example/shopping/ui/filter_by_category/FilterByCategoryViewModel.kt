@@ -12,6 +12,7 @@ import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
 import kotlinx.coroutines.launch
 
 class FilterByCategoryViewModel(application: Application) : AndroidViewModel(application) {
+
     private val service = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
     private val repository = ProductsRemoteRepositoryImp(service)
 
