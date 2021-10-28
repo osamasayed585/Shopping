@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
 
     <item
         android:id="@+id/search"
-        android:title="@string/my_orders"
         android:icon="@drawable/ic_search"
-        app:showAsAction="always"
+        android:iconTint="@color/white"
+        android:title="@string/my_orders"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always|collapseActionView"
         tools:ignore="AlwaysShowAction" />
 
     <item
         android:id="@+id/favourite"
-        android:title="@string/my_favourite"
         android:icon="@drawable/ic_favorite"
+        android:title="@string/my_favourite"
         app:showAsAction="always" />
     <item
         android:id="@+id/order"
-        android:title="@string/my_orders"
         android:icon="@drawable/ic_cart"
+        android:title="@string/my_orders"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 

@@ -13,5 +13,7 @@ interface ProductRemoteRepository {
 
     suspend fun getAllCategoryProductsItemsByName(name: String): Response<List<ProductItem>>
 
+    suspend fun filterProductByQueryName(queryName: String): Response<List<ProductItem>>
+
 
 }
