@@ -47,6 +47,7 @@
         tools:ignore="ContentDescription" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btLogin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btSignUp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -78,6 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/skipLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
