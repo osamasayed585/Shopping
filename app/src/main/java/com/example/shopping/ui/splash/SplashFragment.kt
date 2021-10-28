@@ -52,38 +52,28 @@ class SplashFragment : Fragment() {
 
 
     private fun toWhere() {
-
-        initButtons()
-
-        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(
-            SHOPPING_DATA,
-            Context.MODE_PRIVATE
-        )
+        val sharedPreferences = requireActivity().applicationContext.getSharedPreferences(SHOPPING_DATA, Context.MODE_PRIVATE)
         val statusLogin = sharedPreferences.getBoolean("STATUS_LOGIN", false)
         val statusRegister = sharedPreferences.getBoolean("STATUS_REGISTER", false)
-        if (statusLogin || statusRegister) {
-            Handler(Looper.getMainLooper()).postDelayed({
+
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (statusLogin || statusRegister) {
                 Static.onLogin?.onDone()
-            }, 2000)
+            } else {
 
-            return
-        }
-        initStatusBar(true)
-        GlobalScope.launch {
-            delay(100)
-            GlobalScope.launch(Dispatchers.Main) {
-                binding.btLogin.scaleUp(1500)
-                binding.btSignUp.scaleUp(1500)
-                binding.skipLogin.scaleUp(1500)
-
+                GlobalScope.launch {
+                    delay(100)
+                    GlobalScope.launch(Dispatchers.Main) {
+                        binding.btLogin.scaleUp(1500)
+                        binding.btSignUp.scaleUp(1500)
+                        binding.skipLogin.scaleUp(1500)
+                    }
+                }
             }
-        }
-    }
+        }, 3000)
+        
 
-    private fun initButtons() {
-        binding.btLogin.isVisible = false
-        binding.btSignUp.isVisible = false
-        binding.skipLogin.isVisible = false
     }
 
     private fun initStatusBar(state: Boolean) {
