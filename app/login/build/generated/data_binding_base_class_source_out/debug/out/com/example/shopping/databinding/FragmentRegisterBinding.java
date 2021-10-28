@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
-import androidx.viewbinding.ViewBindings;
 import com.example.shopping.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -129,97 +128,97 @@ public final class FragmentRegisterBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.TextInputLayout_email;
-      TextInputLayout TextInputLayoutEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutEmail = rootView.findViewById(id);
       if (TextInputLayoutEmail == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_name;
-      TextInputLayout TextInputLayoutName = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutName = rootView.findViewById(id);
       if (TextInputLayoutName == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_password;
-      TextInputLayout TextInputLayoutPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutPassword = rootView.findViewById(id);
       if (TextInputLayoutPassword == null) {
         break missingId;
       }
 
       id = R.id.TextInputLayout_phone;
-      TextInputLayout TextInputLayoutPhone = ViewBindings.findChildViewById(rootView, id);
+      TextInputLayout TextInputLayoutPhone = rootView.findViewById(id);
       if (TextInputLayoutPhone == null) {
         break missingId;
       }
 
       id = R.id.bottomCard;
-      ConstraintLayout bottomCard = ViewBindings.findChildViewById(rootView, id);
+      ConstraintLayout bottomCard = rootView.findViewById(id);
       if (bottomCard == null) {
         break missingId;
       }
 
       id = R.id.errorMessage;
-      TextView errorMessage = ViewBindings.findChildViewById(rootView, id);
+      TextView errorMessage = rootView.findViewById(id);
       if (errorMessage == null) {
         break missingId;
       }
 
       id = R.id.logoImageView;
-      ImageView logoImageView = ViewBindings.findChildViewById(rootView, id);
+      ImageView logoImageView = rootView.findViewById(id);
       if (logoImageView == null) {
         break missingId;
       }
 
       id = R.id.register_loginHere;
-      TextView registerLoginHere = ViewBindings.findChildViewById(rootView, id);
+      TextView registerLoginHere = rootView.findViewById(id);
       if (registerLoginHere == null) {
         break missingId;
       }
 
       id = R.id.registration_email;
-      TextInputEditText registrationEmail = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationEmail = rootView.findViewById(id);
       if (registrationEmail == null) {
         break missingId;
       }
 
       id = R.id.registration_password;
-      TextInputEditText registrationPassword = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationPassword = rootView.findViewById(id);
       if (registrationPassword == null) {
         break missingId;
       }
 
       id = R.id.registration_phone;
-      TextInputEditText registrationPhone = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationPhone = rootView.findViewById(id);
       if (registrationPhone == null) {
         break missingId;
       }
 
       id = R.id.registration_progressBar;
-      ProgressBar registrationProgressBar = ViewBindings.findChildViewById(rootView, id);
+      ProgressBar registrationProgressBar = rootView.findViewById(id);
       if (registrationProgressBar == null) {
         break missingId;
       }
 
       id = R.id.registration_Registration;
-      Button registrationRegistration = ViewBindings.findChildViewById(rootView, id);
+      Button registrationRegistration = rootView.findViewById(id);
       if (registrationRegistration == null) {
         break missingId;
       }
 
       id = R.id.registration_username;
-      TextInputEditText registrationUsername = ViewBindings.findChildViewById(rootView, id);
+      TextInputEditText registrationUsername = rootView.findViewById(id);
       if (registrationUsername == null) {
         break missingId;
       }
 
       id = R.id.tvAleardy;
-      TextView tvAleardy = ViewBindings.findChildViewById(rootView, id);
+      TextView tvAleardy = rootView.findViewById(id);
       if (tvAleardy == null) {
         break missingId;
       }
 
       id = R.id.tvLogo;
-      TextView tvLogo = ViewBindings.findChildViewById(rootView, id);
+      TextView tvLogo = rootView.findViewById(id);
       if (tvLogo == null) {
         break missingId;
       }

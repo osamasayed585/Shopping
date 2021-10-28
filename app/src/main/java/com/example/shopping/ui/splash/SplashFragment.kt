@@ -61,7 +61,7 @@ class SplashFragment : Fragment() {
             if (statusLogin || statusRegister) {
                 Static.onLogin?.onDone()
             } else {
-
+                initStatusBar(true)
                 GlobalScope.launch {
                     delay(100)
                     GlobalScope.launch(Dispatchers.Main) {

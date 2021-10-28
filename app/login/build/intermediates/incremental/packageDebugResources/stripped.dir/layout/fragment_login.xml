@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/welcome_Color"
+    android:paddingTop="?attr/actionBarSize"
     app:layout_constraintEnd_toEndOf="parent"
     tools:context="com.hrhera.login.ui.fragment.login.LoginFragment">
 
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
+
+        android:id="@+id/logoImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_logo_foreground"
         app:layout_constraintBottom_toTopOf="@+id/tvLogo"
@@ -26,21 +28,26 @@
         style="@style/RedHUGEText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginTop="24dp"
         android:text="@string/shopping"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape_login_and_register"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogo">
+        app:layout_constraintTop_toBottomOf="@+id/tvLogo"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -48,9 +55,9 @@
             style="@style/myTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/marginEnd_10"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="@dimen/marginEnd_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -64,13 +71,14 @@
                 android:hint="@string/email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
+        <!--    app:helperTextEnabled="true"-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordTextInputLayout"
             style="@style/myTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/marginEnd_10"
+            android:layout_marginEnd="@dimen/marginEnd_10"
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,29 +96,30 @@
 
 
         <TextView
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
             android:id="@+id/errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/red"
-             />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout" />
+
         <Button
 
             android:id="@+id/btnLogin"
-            android:layout_width="@dimen/_250sdp"
+            style="@style/authanticationButtons"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/marginStart_10"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/marginEnd_10"
             android:background="@drawable/shape_button_blue"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text="@string/login"
             android:gravity="center"
+            android:text="@string/login"
             android:textColor="@color/white"
-            style ="@style/authanticationButtons"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/errorMessage" />
 
@@ -118,11 +127,11 @@
             android:id="@+id/doNot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_55sdp"
-            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="24dp"
             android:text="@string/Do_not"
             android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"
+            android:textSize="@dimen/doYou"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
@@ -130,11 +139,11 @@
             android:id="@+id/login_registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_14sdp"
-            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="24dp"
             android:text="@string/registration"
             android:textColor="@color/purple_700"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/login_registration_text_size"
             app:layout_constraintStart_toEndOf="@+id/doNot"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
@@ -142,9 +151,9 @@
             android:id="@+id/loginWith"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:foregroundGravity="center|center_horizontal"
             android:text="@string/loginWith"
             android:textColor="@color/black"
@@ -156,11 +165,11 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="@dimen/_100sdp"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:layout_marginEnd="@dimen/_24sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_facebook"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
@@ -170,9 +179,9 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_google"
             app:layout_constraintEnd_toStartOf="@+id/imageView5"
@@ -182,11 +191,11 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginStart="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:layout_marginEnd="@dimen/_100sdp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_twitter"
             app:layout_constraintEnd_toEndOf="parent"
@@ -199,14 +208,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_25sdp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/cancel"
             android:textColor="@color/black"
-            android:textSize="@dimen/_17ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="@dimen/login_cancel_size"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
