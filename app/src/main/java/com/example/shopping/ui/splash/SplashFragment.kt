@@ -66,9 +66,15 @@ class SplashFragment : Fragment() {
     }
 
     private fun initButtons(state: Boolean) {
-        binding.skipLogin.isVisible = state
-        binding.btLogin.isVisible = state
-        binding.btSignUp.isVisible = state
+        if (state) {
+            binding.skipLogin.visibility = View.VISIBLE
+            binding.btLogin.visibility = View.VISIBLE
+            binding.btSignUp.visibility = View.VISIBLE
+        }else{
+            binding.skipLogin.visibility = View.GONE
+            binding.btLogin.visibility = View.GONE
+            binding.btSignUp.visibility = View.GONE
+        }
     }
 
     private fun initStatusBar(state: Boolean) {
