@@ -1,4 +1,4 @@
-package com.example.shopping.model.repository
+package com.example.shopping.model.remote
 
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
