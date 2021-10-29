@@ -9,5 +9,6 @@ class Constants {
     companion object {
         const val TOKEN_LOGIN: String = "TOKEN_LOGIN"
         const val SHOPPING_DATA: String = "ShoppingData"
+        const val TAG: String = "tag"
     }
 }
