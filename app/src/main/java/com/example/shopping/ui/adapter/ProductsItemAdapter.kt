@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopping.databinding.RowOneProductItemBinding
+
 import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.util.call_back.ProductItemDiffCallback
 import com.squareup.picasso.Picasso
@@ -34,7 +35,6 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
             .fit()
             .into(bind.productImage)
         bind.productRating.rating = Float.fromBits(item.rating)
-
 
     }
 }

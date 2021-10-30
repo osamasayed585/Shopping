@@ -23,7 +23,7 @@ class HotProductViewPagerAdapter(var context: Context, var ProductList: List<Pro
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.hotproduct_item, container, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.row_hotproduct_item, container, false)
 
         val image = view.findViewById<ImageView>(R.id.hot_image)
         val title = view.findViewById<TextView>(R.id.hotItem_title)

@@ -35,6 +35,7 @@
     <string name="product_image">Proudct Image</string>
     <string name="skip_now">Skip Now</string>
     <string name="category">Category</string>
+    <string name="home">Home</string>
 
 
     <string-array name="spinnerData">

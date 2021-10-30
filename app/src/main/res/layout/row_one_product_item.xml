@@ -4,26 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_8sdp"
-    android:minHeight="@dimen/_150sdp"
+    android:minHeight="@dimen/_130sdp"
     app:cardCornerRadius="@dimen/_16sdp"
     app:cardElevation="@dimen/_8sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_8sdp">
+        >
 
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_70sdp"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_height="@dimen/_80sdp"
             android:contentDescription="@string/product_image"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+
             android:id="@+id/productName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,8 +54,8 @@
 
         <ImageView
             android:id="@+id/likeImage"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -68,13 +66,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/productPrice"
+            app:tint="@color/grey_700"
 
             />
 
         <ImageView
             android:id="@+id/shopImage"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -85,7 +84,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/likeImage"
             app:layout_constraintTop_toBottomOf="@id/productPrice"
-            app:tint="@color/black" />
+            app:tint="@color/grey_700"
+
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
