@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shopping.databinding.RowOneProductItemBinding
 
 import com.example.shopping.model.data_class.ProductItem
+import com.example.shopping.util.call_back.OnRecyclerItemClick
 import com.example.shopping.util.call_back.ProductItemDiffCallback
 import com.squareup.picasso.Picasso
 
@@ -25,6 +26,8 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
         )
     }
 
+    lateinit var onAddToCartClick: OnRecyclerItemClick
+
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = getItem(position)
         val bind = holder.bind
@@ -35,6 +38,10 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
             .fit()
             .into(bind.productImage)
         bind.productRating.rating = Float.fromBits(item.rating)
+
+        bind.shopImage.setOnClickListener {
+            onAddToCartClick.onItemClick(item)
+        }
 
     }
 }

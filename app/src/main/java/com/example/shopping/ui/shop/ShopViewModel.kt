@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.model.repository.ProductsRemoteRepositoryImp
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +16,7 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
         MutableLiveData<List<ProductItem>>()
     private val _shopItemLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     private var repository: ProductsRemoteRepositoryImp = ProductsRemoteRepositoryImp()
+
     init {
         _listOfProducts.value = listOf()
         setData()
@@ -56,6 +58,16 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
         _listOfProducts.value = mutableListOfItem
 
     }
+
+
+    fun addItemToCart(item: ProductItem) {
+        val cartItem = CartItem(count = 1, item = item)
+        viewModelScope.launch {
+            cartItems.postValue(repository.addItemToCartList(cartItem))
+        }
+    }
+    val cartItems = MutableLiveData<List<CartItem>>()
+
 }
 
 

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shopping.databinding.RowCategoryItemWithIconBinding
 import com.example.shopping.databinding.RowCategoryItemWithPhotoBinding
 import com.example.shopping.model.data_class.CategoryItem
-import com.example.shopping.util.CircleTransform
+import com.example.shopping.util.view.CircleTransform
 import com.example.shopping.util.call_back.CategoryItemDiffCallback
 import com.example.shopping.util.call_back.OnRecyclerItemClick
 import com.squareup.picasso.Picasso

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.shopping.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -131,103 +132,103 @@ public final class FragmentLoginBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.bottomCard;
-      ConstraintLayout bottomCard = rootView.findViewById(id);
+      ConstraintLayout bottomCard = ViewBindings.findChildViewById(rootView, id);
       if (bottomCard == null) {
         break missingId;
       }
 
       id = R.id.btnLogin;
-      Button btnLogin = rootView.findViewById(id);
+      Button btnLogin = ViewBindings.findChildViewById(rootView, id);
       if (btnLogin == null) {
         break missingId;
       }
 
       id = R.id.doNot;
-      TextView doNot = rootView.findViewById(id);
+      TextView doNot = ViewBindings.findChildViewById(rootView, id);
       if (doNot == null) {
         break missingId;
       }
 
       id = R.id.emailTextInputLayout;
-      TextInputLayout emailTextInputLayout = rootView.findViewById(id);
+      TextInputLayout emailTextInputLayout = ViewBindings.findChildViewById(rootView, id);
       if (emailTextInputLayout == null) {
         break missingId;
       }
 
       id = R.id.errorMessage;
-      TextView errorMessage = rootView.findViewById(id);
+      TextView errorMessage = ViewBindings.findChildViewById(rootView, id);
       if (errorMessage == null) {
         break missingId;
       }
 
       id = R.id.imageView3;
-      ImageView imageView3 = rootView.findViewById(id);
+      ImageView imageView3 = ViewBindings.findChildViewById(rootView, id);
       if (imageView3 == null) {
         break missingId;
       }
 
       id = R.id.imageView4;
-      ImageView imageView4 = rootView.findViewById(id);
+      ImageView imageView4 = ViewBindings.findChildViewById(rootView, id);
       if (imageView4 == null) {
         break missingId;
       }
 
       id = R.id.imageView5;
-      ImageView imageView5 = rootView.findViewById(id);
+      ImageView imageView5 = ViewBindings.findChildViewById(rootView, id);
       if (imageView5 == null) {
         break missingId;
       }
 
       id = R.id.login_cancel;
-      TextView loginCancel = rootView.findViewById(id);
+      TextView loginCancel = ViewBindings.findChildViewById(rootView, id);
       if (loginCancel == null) {
         break missingId;
       }
 
       id = R.id.login_email;
-      TextInputEditText loginEmail = rootView.findViewById(id);
+      TextInputEditText loginEmail = ViewBindings.findChildViewById(rootView, id);
       if (loginEmail == null) {
         break missingId;
       }
 
       id = R.id.login_Password;
-      TextInputEditText loginPassword = rootView.findViewById(id);
+      TextInputEditText loginPassword = ViewBindings.findChildViewById(rootView, id);
       if (loginPassword == null) {
         break missingId;
       }
 
       id = R.id.login_progressBar;
-      ProgressBar loginProgressBar = rootView.findViewById(id);
+      ProgressBar loginProgressBar = ViewBindings.findChildViewById(rootView, id);
       if (loginProgressBar == null) {
         break missingId;
       }
 
       id = R.id.login_registration;
-      TextView loginRegistration = rootView.findViewById(id);
+      TextView loginRegistration = ViewBindings.findChildViewById(rootView, id);
       if (loginRegistration == null) {
         break missingId;
       }
 
       id = R.id.loginWith;
-      TextView loginWith = rootView.findViewById(id);
+      TextView loginWith = ViewBindings.findChildViewById(rootView, id);
       if (loginWith == null) {
         break missingId;
       }
 
       id = R.id.logoImageView;
-      ImageView logoImageView = rootView.findViewById(id);
+      ImageView logoImageView = ViewBindings.findChildViewById(rootView, id);
       if (logoImageView == null) {
         break missingId;
       }
 
       id = R.id.passwordTextInputLayout;
-      TextInputLayout passwordTextInputLayout = rootView.findViewById(id);
+      TextInputLayout passwordTextInputLayout = ViewBindings.findChildViewById(rootView, id);
       if (passwordTextInputLayout == null) {
         break missingId;
       }
 
       id = R.id.tvLogo;
-      TextView tvLogo = rootView.findViewById(id);
+      TextView tvLogo = ViewBindings.findChildViewById(rootView, id);
       if (tvLogo == null) {
         break missingId;
       }
