@@ -25,4 +25,6 @@ interface ShoppingAPI {
   suspend fun filterProductByQueryName(@Query("name") name: String): Response<List<ProductItem>>
 
 
+
+  @GET("brands") suspend fun getProductBrands(): Response<List<ProductItem>>
 }

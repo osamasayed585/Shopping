@@ -15,5 +15,10 @@ interface ProductRepository {
 
     suspend fun filterProductByQueryName(queryName: String): List<ProductItem>
 
+    suspend fun getAllHotProducts(): List<ProductItem>
+
+    suspend fun getProductBrands(): List<ProductItem>
+
+
 
 }

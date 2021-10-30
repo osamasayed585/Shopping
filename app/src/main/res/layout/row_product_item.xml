@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="200dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="245dp"
         android:layout_margin="5dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/camera_3" />
+            android:src="@drawable/ic_account" />
 
         <!--        <ImageView-->
         <!--            android:layout_width="match_parent"-->
@@ -47,13 +47,12 @@
             <RatingBar
                 android:id="@+id/hotItem_rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="80dp"
                 android:clickable="false"
                 android:numStars="5"
-                android:paddingTop="5dp"
+                android:paddingTop="8dp"
                 android:progressTint="#FDC50A"
                 android:rating="3"
                 android:stepSize="0.5" />

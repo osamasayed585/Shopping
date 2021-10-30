@@ -6,20 +6,11 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:padding="@dimen/_8sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@color/welcome_Color"
-            android:minHeight="?attr/actionBarSize"
-            app:menu="@menu/home_and_shop_menu"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Home"
-            app:titleTextColor="@color/white" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +19,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Product Brands"
                 android:textColor="@color/grey_700"
@@ -48,7 +42,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:layout_marginStart="5dp"
             android:orientation="horizontal"
             android:scrollbars="horizontal">
 
@@ -59,6 +52,7 @@
         </LinearLayout>
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -91,6 +85,7 @@
             android:scrollbars="horizontal">
 
             <androidx.viewpager.widget.ViewPager
+
                 android:id="@+id/hotProduct_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
