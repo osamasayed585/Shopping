@@ -18,11 +18,6 @@
         android:icon="@drawable/ic_favorite"
         android:title="@string/my_favourite"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/order"
-        android:icon="@drawable/ic_cart"
-        android:title="@string/my_orders"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction" />
+
 
 </menu>

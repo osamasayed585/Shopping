@@ -1,10 +1,13 @@
 package com.example.shopping.model.local
 
+import android.util.Log
+import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
 import kotlinx.coroutines.delay
 import retrofit2.Response
 import java.util.*
+import java.util.Collections.reverse
 
 object TestData {
     private val listOfCategoryItem = arrayListOf(
@@ -77,8 +80,8 @@ object TestData {
 
             //camera
             "https://i.pcmag.com/imagery/roundups/018cwxjHcVMwiaDIpTnZJ8H-23.1570842461.fit_lim.size_1200x630.jpg",
-            "https://www.sony.com/image/7a1d1a81a42b91c0bb26e7061cc7b999?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
-            "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6204/6204310_sd.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/1200px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg",
+            "https://4.img-dpreview.com/files/p/E~TS520x0~articles/4497515678/best-mirrorless-m6ii.jpeg",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb7NRdgoga1IQ1YviEP6LypSXRPDnL6hGKNA&usqp=CAU",
             "https://media.wired.com/photos/5d31f0327e21db0008efc4ee/master/pass/Gear-Sony-RX100VI-SOURCE-Sony.jpg",
 
@@ -98,51 +101,53 @@ object TestData {
             )
 
         listOfItems.clear()
+        reverse(listOfImage)
+
         for ((i, x) in listOfImage.withIndex()) {
             listOfItems.add(
                 ProductItem(
                     image1 = x,
-                    price = "${i * 25}",
+                    price = "${(i + 1) * 200}",
                     title = when {
                         i < 5 -> {
-                            "laptop $i"
+                            "mouse $i"
                         }
                         i < 10 -> {
-                            "cameras $i"
-                        }
-                        i < 15 -> {
                             "keyboards $i"
                         }
+                        i < 15 -> {
+                            "cameras $i"
+                        }
                         else -> {
-                            "mouse $i"
+                            "laptop $i"
                         }
                     },
                     category = when {
                         i < 5 -> {
-                            "laptop"
+                            "mouse"
                         }
                         i < 10 -> {
-                            "cameras"
-                        }
-                        i < 15 -> {
                             "keyboards"
                         }
+                        i < 15 -> {
+                            "cameras"
+                        }
                         else -> {
-                            "mouse"
+                            "laptop"
                         }
                     },
                     categoryId = when {
                         i < 5 -> {
-                            "1"
+                            "4"
                         }
                         i < 10 -> {
-                            "2"
-                        }
-                        i < 15 -> {
                             "3"
                         }
+                        i < 15 -> {
+                            "2"
+                        }
                         else -> {
-                            "4"
+                            "1"
                         }
                     },
                     rating = Random().nextInt(5),
@@ -187,12 +192,47 @@ object TestData {
 
     }
 
-     fun filterProductByQueryName(query: String): Response<List<ProductItem>> {
+    fun filterProductByQueryName(query: String): Response<List<ProductItem>> {
 
         return Response.success(
             listOfItems.filter { it.title.contains(query) }
         )
 
     }
+
+
+    fun checkOut(): Response<List<CartItem>> {
+        cartItems.clear()
+        return getProductInCart()
+    }
+
+
+    fun addItemToCart(item: CartItem): Response<List<CartItem>> {
+        cartItems.add(item)
+        Log.e("TAG", "addItemToCart: Add")
+        return getProductInCart()
+    }
+
+    private val cartItems = mutableListOf<CartItem>()
+
+    fun getProductInCart(): Response<List<CartItem>> {
+        return Response.success(cartItems)
+    }
+
+    fun updateItem(count: Int, item: CartItem): Response<List<CartItem>> {
+        if (count == 0) {
+            cartItems.remove(item)
+        } else {
+            val index = cartItems.indexOf(item)
+            item.count = item.count + count
+            if (item.count < 0) {
+                item.count = 0
+            }
+            cartItems[index] = item
+        }
+
+        return getProductInCart()
+    }
+
 
 }

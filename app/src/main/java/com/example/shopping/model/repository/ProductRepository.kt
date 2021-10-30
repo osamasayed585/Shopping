@@ -1,5 +1,6 @@
 package com.example.shopping.model.repository
 
+import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
 import retrofit2.Response
@@ -19,6 +20,7 @@ interface ProductRepository {
 
     suspend fun getProductBrands(): List<ProductItem>
 
+    suspend fun getProductInCart(): List<CartItem>
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.shopping.model.repository
 
 import com.example.shopping.MApplication
+import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.RunType
 import com.example.shopping.model.local.TestData
 import com.example.shopping.model.remote.ShopRemoteBuilder
@@ -77,15 +78,66 @@ class ProductsRemoteRepositoryImp : ProductRepository {
         }
 
 
-    override suspend fun getProductBrands() = withContext(Dispatchers.IO){
+    override suspend fun getProductBrands() = withContext(Dispatchers.IO) {
         api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
 
         api!!.getProductBrands().body()!!
     }
 
-    override suspend fun getAllHotProducts() = withContext(Dispatchers.IO){
+
+    override suspend fun getAllHotProducts() = withContext(Dispatchers.IO) {
         api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
         api!!.getAllProducts().body()!!
     }
+
+
+    override suspend fun getProductInCart() =
+        if (isOnline) {
+            withContext(Dispatchers.IO) {
+                api!!.getProductInCart(mapOf()).body()!!
+            }
+        } else {
+            withContext(Dispatchers.IO) {
+                TestData.getProductInCart().body()!!
+            }
+        }
+
+
+    suspend fun addItemToCartList(item: CartItem) =
+        if (isOnline) {
+            withContext(Dispatchers.IO) {
+                api!!.getProductInCart(mapOf()).body()!!
+            }
+        } else {
+            withContext(Dispatchers.IO) {
+
+                TestData.addItemToCart(item).body()!!
+            }
+        }
+
+
+    suspend fun checkOtuCart() =
+        if (isOnline) {
+            withContext(Dispatchers.IO) {
+                api!!.getProductInCart(mapOf()).body()!!
+            }
+        } else {
+            withContext(Dispatchers.IO) {
+                TestData.checkOut().body()!!
+            }
+        }
+
+
+    suspend fun updateItem(count: Int, item: CartItem) = if (isOnline) {
+        withContext(Dispatchers.IO) {
+            api!!.getProductInCart(mapOf()).body()!!
+        }
+    } else {
+        withContext(Dispatchers.IO) {
+            TestData.updateItem(count, item).body()!!
+        }
+    }
+
+
 
 }

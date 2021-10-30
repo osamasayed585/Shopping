@@ -15,7 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentShopBinding
+import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.CategoryItem
+import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.ui.adapter.CategoryRecyclerAdapter
 import com.example.shopping.ui.adapter.ProductsItemAdapter
 import com.example.shopping.ui.filter_by_category.FilterByCategoryViewModel
@@ -48,6 +50,13 @@ class ShopFragment : Fragment() {
         val adapter = ProductsItemAdapter()
         binding.itemRecycler.adapter = adapter
 
+        adapter.onAddToCartClick = object : OnRecyclerItemClick {
+            override fun onItemClick(item: Any) {
+                shopViewModel.addItemToCart(item as ProductItem)
+                Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         shopViewModel.listOfProductsLiveData.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
@@ -56,7 +65,14 @@ class ShopFragment : Fragment() {
             binding.isLoading.isVisible = it
         }
 
+        shopViewModel.cartItems.observe(viewLifecycleOwner) {
+            binding.cartItemCount.isVisible = it.isNotEmpty()
+            binding.cartItemCount.text = it.size.toString()
+        }
 
+        binding.shopCart.setOnClickListener {
+            (requireActivity() as MainActivity).navController.navigate(R.id.ordersFragment)
+        }
 
 
         handleCategoryView()
@@ -75,10 +91,7 @@ class ShopFragment : Fragment() {
                     Toast.makeText(context, "favourite", Toast.LENGTH_SHORT).show()
                     true
                 }
-                R.id.order -> {
-                    Toast.makeText(context, "order", Toast.LENGTH_SHORT).show()
-                    true
-                }
+
                 else -> {
                     false
                 }
@@ -94,7 +107,7 @@ class ShopFragment : Fragment() {
             searchView.foregroundTintList =
                 ContextCompat.getColorStateList(requireContext(), R.color.white)
         }
-        searchView.setPaddingRelative(20,0,20,0)
+        searchView.setPaddingRelative(20, 0, 20, 0)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 shopViewModel.filterByProductName(query)

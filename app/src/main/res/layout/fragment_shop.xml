@@ -19,31 +19,52 @@
         app:menu="@menu/home_and_shop_menu"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <TextView
-            android:id="@+id/categoryTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/welcome_Color"
-            android:drawablePadding="@dimen/_2sdp"
-            android:gravity="center"
-            android:text="@string/category"
-            android:textColor="@color/white"
-            app:drawableEndCompat="@drawable/icchevron_left_24"
-            app:drawableTint="@color/white" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/toolbar_spinner"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="0dp"
-            android:entries="@array/spinnerData"
-            android:maxLines="1"
-            android:spinnerMode="dropdown"
-            android:theme="@style/Spinner"
-            android:visibility="gone"
-            tools:ignore="RtlHardcoded" />
+            <TextView
+                android:id="@+id/categoryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/welcome_Color"
+                android:drawablePadding="@dimen/_2sdp"
+                android:gravity="center"
+                android:text="@string/category"
+                android:textColor="@color/white"
+                app:drawableEndCompat="@drawable/icchevron_left_24"
+                app:drawableTint="@color/white"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/cartItemCount"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:background="@drawable/circl_shep"
+                android:backgroundTint="@color/red"
+                android:gravity="center"
+                android:src="@drawable/ic_cart"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/shopCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_2sdp"
+                android:src="@drawable/ic_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -55,14 +76,13 @@
         android:elevation="?attr/actionBarSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
+
         <include
 
             android:id="@+id/categoryLayout"
-            layout="@layout/category_lay_out"/>
+            layout="@layout/category_lay_out" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     <ProgressBar

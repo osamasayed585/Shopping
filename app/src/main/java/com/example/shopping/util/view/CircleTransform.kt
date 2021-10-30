@@ -1,4 +1,4 @@
-package com.example.shopping.util
+package com.example.shopping.util.view
 
 import android.graphics.*
 import com.squareup.picasso.Transformation
