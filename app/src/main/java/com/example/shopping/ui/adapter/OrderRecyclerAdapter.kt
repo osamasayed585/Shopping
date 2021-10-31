@@ -19,10 +19,7 @@ class OrderRecyclerAdapter() :
     lateinit var onRemoveOneClick: OnRecyclerItemClick
     lateinit var onAddOneClick: OnRecyclerItemClick
 
-    override fun submitList(list: List<CartItem>?) {
-        super.submitList(list)
-        notifyDataSetChanged()
-    }
+
 
     class CartItemViewHolder(val bind: RowCartItemBinding) :
         RecyclerView.ViewHolder(bind.root)

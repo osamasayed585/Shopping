@@ -44,12 +44,16 @@ class OrdersFragment : BaseFragment<FragmentOrdersBinding, OrderViewModel>() {
 
 
         viewModel.orderCartItemLiveData.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+            val items= mutableListOf<CartItem>()
+            items.addAll(it)
+            adapter.submitList(items)
         }
 
         viewModel.orderCartItemTotalLiveData.observe(viewLifecycleOwner) {
             binding.total.text=it
         }
+
+
 
     }
 
