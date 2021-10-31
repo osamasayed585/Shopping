@@ -90,7 +90,6 @@ class ProductsRemoteRepositoryImp : ProductRepository {
 
     override suspend fun getProductBrands() = withContext(Dispatchers.IO) {
         api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
-
         api!!.getProductBrands().body()!!
     }
 
@@ -99,6 +98,12 @@ class ProductsRemoteRepositoryImp : ProductRepository {
         api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
         api!!.getAllProducts().body()!!
     }
+
+    override suspend fun getDiscountArea() = withContext(Dispatchers.IO){
+        api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
+        api!!.getDiscountArea().body()!!
+    }
+
 
 
     override suspend fun getProductInCart() =
@@ -111,6 +116,7 @@ class ProductsRemoteRepositoryImp : ProductRepository {
                 TestData.getProductInCart().body()!!
             }
         }
+
 
 
     suspend fun addItemToCartList(item: CartItem) =
