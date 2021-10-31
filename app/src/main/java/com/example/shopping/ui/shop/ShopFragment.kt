@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentShopBinding
-import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.ui.adapter.CategoryRecyclerAdapter
@@ -43,11 +42,44 @@ class ShopFragment : Fragment() {
 
         sharedModel = (requireActivity() as MainActivity).sherViewModel
 
-
         _binding = FragmentShopBinding.inflate(inflater, container, false)
 
-        binding.itemRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+        return binding.root
+    }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.search -> {
+                    initSearchView(it)
+                }
+                R.id.favourite -> {
+                    (requireActivity() as MainActivity).navController.navigate(R.id.favouriteFragment)
+                    true
+                }
+
+                else -> {
+                    false
+                }
+            }
+        }
+
+
+        initMainFun()
+        handleCategoryView()
+
+
+    }
+
+
+
+    private fun initMainFun() {
         val adapter = ProductsItemAdapter()
+
+        binding.itemRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.itemRecycler.adapter = adapter
 
         adapter.onAddToCartClick = object : OnRecyclerItemClick {
@@ -56,6 +88,22 @@ class ShopFragment : Fragment() {
                 Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show()
             }
         }
+
+        adapter.onRemoveFromFavouriteClick= object : OnRecyclerItemClick {
+            override fun onItemClick(item: Any) {
+                shopViewModel.removeFromFavourite(item  as ProductItem)
+            }
+        }
+
+
+        adapter.onAddToFavouriteClick= object : OnRecyclerItemClick {
+            override fun onItemClick(item: Any) {
+                shopViewModel.addToFavourite(item  as ProductItem)
+            }
+        }
+
+
+
 
         shopViewModel.listOfProductsLiveData.observe(viewLifecycleOwner) {
             adapter.submitList(it)
@@ -75,27 +123,8 @@ class ShopFragment : Fragment() {
         }
 
 
-        handleCategoryView()
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.search -> {
-                    initSearchView(it)
-                }
-                R.id.favourite -> {
-                    Toast.makeText(context, "favourite", Toast.LENGTH_SHORT).show()
-                    true
-                }
-
-                else -> {
-                    false
-                }
-            }
+        shopViewModel.listOfFavouriteProducts.observe(viewLifecycleOwner) {
+            adapter.setFavList(it)
         }
 
 

@@ -1,9 +1,12 @@
 package com.example.shopping.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shopping.R
 import com.example.shopping.databinding.RowOneProductItemBinding
 
 import com.example.shopping.model.data_class.ProductItem
@@ -16,6 +19,14 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
 ) {
     class ProductViewHolder(val bind: RowOneProductItemBinding) : RecyclerView.ViewHolder(bind.root)
 
+    private val listOfFavourite = mutableListOf<ProductItem>()
+    fun setFavList(listProductItem: List<ProductItem>) {
+        listOfFavourite.clear()
+        listOfFavourite.addAll(listProductItem)
+
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder(
             RowOneProductItemBinding.inflate(
@@ -27,6 +38,8 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
     }
 
     lateinit var onAddToCartClick: OnRecyclerItemClick
+    lateinit var onAddToFavouriteClick: OnRecyclerItemClick
+    lateinit var onRemoveFromFavouriteClick: OnRecyclerItemClick
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = getItem(position)
@@ -43,5 +56,39 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
             onAddToCartClick.onItemClick(item)
         }
 
+        try {
+
+            bind.likeImage.setColorFilter(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.grey_500
+                )
+            )
+
+            bind.likeImage.setOnClickListener {
+                onAddToFavouriteClick.onItemClick(item)
+            }
+
+            if (isFavourite(item)) {
+                bind.likeImage.setColorFilter(
+                    ContextCompat.getColor(
+                        holder.itemView.context,
+                        R.color.activeBottomColor
+                    )
+                )
+                bind.likeImage.setOnClickListener {
+                    onRemoveFromFavouriteClick.onItemClick(item)
+                }
+            }
+
+        }catch (e:Throwable){
+            Log.e("TAG", "onBindViewHolder: ${e.message}", )
+        }
+
+    }
+
+
+    private fun isFavourite(item: ProductItem): Boolean {
+        return listOfFavourite.filter { it.id == item.id }.size == 1
     }
 }

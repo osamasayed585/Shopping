@@ -66,7 +66,26 @@ class ShopViewModel(application: Application) : AndroidViewModel(application) {
             cartItems.postValue(repository.addItemToCartList(cartItem))
         }
     }
+
     val cartItems = MutableLiveData<List<CartItem>>()
+
+
+    val listOfFavouriteProducts = repository.allFavouriteProducts
+
+
+    fun addToFavourite(item: ProductItem) {
+        viewModelScope.launch {
+            repository.addItemToFavouriteProducts(item)
+        }
+    }
+
+
+    fun removeFromFavourite(item: ProductItem) {
+        viewModelScope.launch {
+            repository.deleteFromFavouriteProducts(item)
+        }
+    }
+
 
 }
 

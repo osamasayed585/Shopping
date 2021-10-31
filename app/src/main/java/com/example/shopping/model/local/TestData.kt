@@ -1,6 +1,6 @@
 package com.example.shopping.model.local
 
-import android.util.Log
+
 import com.example.shopping.model.data_class.CartItem
 import com.example.shopping.model.data_class.CategoryItem
 import com.example.shopping.model.data_class.ProductItem
@@ -106,6 +106,7 @@ object TestData {
         for ((i, x) in listOfImage.withIndex()) {
             listOfItems.add(
                 ProductItem(
+                    id = "$i",
                     image1 = x,
                     price = "${(i + 1) * 200}",
                     title = when {
@@ -209,13 +210,26 @@ object TestData {
 
     fun addItemToCart(item: CartItem): Response<List<CartItem>> {
         cartItems.add(item)
-        Log.e("TAG", "addItemToCart: Add")
         return getProductInCart()
     }
 
     private val cartItems = mutableListOf<CartItem>()
 
     fun getProductInCart(): Response<List<CartItem>> {
+        val map = mutableMapOf<String, CartItem>()
+        for (i in cartItems) {
+            val item = map[i.item.id]
+            if (item != null) {
+                item.count = item.count + i.count
+            } else {
+                map[i.item.id] = i
+            }
+        }
+
+        cartItems.clear()
+        for (i in map) {
+            cartItems.add(i.value)
+        }
         return Response.success(cartItems)
     }
 
