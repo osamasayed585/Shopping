@@ -29,8 +29,6 @@ class ProductsRemoteRepositoryImp : ProductRepository {
         }
 
     }
-
-
     override suspend fun getALlProduct() = if (isOnline) {
         withContext(Dispatchers.IO) {
             api!!.getAllProducts().body()!!
