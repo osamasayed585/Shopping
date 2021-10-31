@@ -6,23 +6,21 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:padding="@dimen/_8sdp"
+        android:padding="@dimen/_6sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
         <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Product Brands"
                 android:textColor="@color/grey_700"
@@ -32,16 +30,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="View All"
                 android:textColor="@color/blue"
-                android:textSize="12sp" />
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:orientation="horizontal"
             android:scrollbars="horizontal">
 
@@ -52,14 +53,14 @@
         </LinearLayout>
 
         <RelativeLayout
-
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Hot Product"
                 android:textColor="@color/grey_700"
@@ -69,36 +70,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="View All"
                 android:textColor="@color/blue"
-                android:textSize="12sp" />
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="245dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="@dimen/_215sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:orientation="horizontal"
             android:scrollbars="horizontal">
 
             <androidx.viewpager.widget.ViewPager
-
                 android:id="@+id/hotProduct_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
         <RelativeLayout
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Discount Area"
                 android:textColor="@color/grey_700"
@@ -108,19 +110,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="8dp"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="View All"
                 android:textColor="@color/blue"
-                android:textSize="12sp" />
+                android:textSize="@dimen/_10sdp" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="@dimen/_125sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_2sdp"
             android:orientation="horizontal"
             android:scrollbars="horizontal">
 

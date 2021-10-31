@@ -22,5 +22,7 @@ interface ProductRepository {
 
     suspend fun getProductInCart(): List<CartItem>
 
+    suspend fun getDiscountArea(): List<ProductItem>
+
 
 }

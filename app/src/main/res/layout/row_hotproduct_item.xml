@@ -9,23 +9,18 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="@dimen/_210sdp"
         android:layout_margin="5dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp">
 
         <ImageView
-            android:id="@+id/hot_image"
+            android:id="@+id/hotProduct_image"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="@dimen/_150sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_account" />
-
-        <!--        <ImageView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:background="@drawable/gradient_transparent_black"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +29,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/hotItem_title"
+                android:id="@+id/hotProduct_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -45,7 +40,7 @@
                 android:textStyle="bold" />
 
             <RatingBar
-                android:id="@+id/hotItem_rating"
+                android:id="@+id/hotProduct_rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_20sdp"
@@ -53,7 +48,7 @@
                 android:clickable="false"
                 android:numStars="5"
                 android:paddingTop="8dp"
-                android:progressTint="#FDC50A"
+                android:progressTint="@color/gold"
                 android:rating="3"
                 android:stepSize="0.5" />
 
@@ -62,7 +57,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageButton
-                    android:id="@+id/hotItem_favourite"
+                    android:id="@+id/hotProduct_favourite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -73,18 +68,18 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageButton
-                    android:id="@+id/hotItem_cart"
+                    android:id="@+id/hotProduct_cart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:layout_toLeftOf="@id/hotItem_favourite"
+                    android:layout_toLeftOf="@id/hotProduct_favourite"
                     android:background="@color/white"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_shopping_cart_20"
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:id="@+id/hotItem_barcode"
+                    android:id="@+id/hotProduct_barcode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="7dp"

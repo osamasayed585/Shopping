@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
-    private val ctx = application
 
     private var repository: ProductsRemoteRepositoryImp = ProductsRemoteRepositoryImp()
 
@@ -20,6 +19,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _productBrandsMLD = MutableLiveData<List<ProductItem>>()
     val productBrandsLD: LiveData<List<ProductItem>> = _productBrandsMLD
+
+    private val _discountAreaMLD = MutableLiveData<List<ProductItem>>()
+    val discountAreaLD: LiveData<List<ProductItem>> = _discountAreaMLD
+
 
     fun getHotProducts() = viewModelScope.launch {
         val result = repository.getAllHotProducts()
@@ -30,6 +33,11 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     fun getProductBrands() = viewModelScope.launch {
         val result = repository.getProductBrands()
         _productBrandsMLD.value = result
+    }
+
+    fun getDiscountArea() = viewModelScope.launch {
+        val result = repository.getDiscountArea()
+        _discountAreaMLD.value = result
     }
 
 
