@@ -18,6 +18,7 @@
             android:id="@+id/brands_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/roboto_medium"
             android:src="@drawable/ic_message"
             android:scaleType="centerCrop"/>
 
@@ -33,10 +34,10 @@
             android:layout_gravity="bottom"
             android:layout_margin="8dp"
             android:maxLines="2"
+            android:fontFamily="@font/roboto_medium"
             android:text="NewsUp is platform where you can get all the latest news."
             android:textColor="@android:color/white"
-            android:textSize="14dp" />
-<!--        android:fontFamily="@font/roboto_medium"-->
+            android:textSize="@dimen/_12sdp" />
 
     </androidx.cardview.widget.CardView>
 

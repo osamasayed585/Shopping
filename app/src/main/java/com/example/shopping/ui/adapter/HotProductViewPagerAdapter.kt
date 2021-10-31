@@ -25,12 +25,12 @@ class HotProductViewPagerAdapter(var context: Context, var ProductList: List<Pro
 
         val view = LayoutInflater.from(context).inflate(R.layout.row_hotproduct_item, container, false)
 
-        val image = view.findViewById<ImageView>(R.id.hot_image)
-        val title = view.findViewById<TextView>(R.id.hotItem_title)
-        val barcode = view.findViewById<TextView>(R.id.hotItem_barcode)
-        val rating = view.findViewById<RatingBar>(R.id.hotItem_rating)
-        val favourite = view.findViewById<ImageButton>(R.id.hotItem_favourite)
-        val cart = view.findViewById<ImageButton>(R.id.hotItem_cart)
+        val image = view.findViewById<ImageView>(R.id.hotProduct_image)
+        val title = view.findViewById<TextView>(R.id.hotProduct_title)
+        val barcode = view.findViewById<TextView>(R.id.hotProduct_barcode)
+        val rating = view.findViewById<RatingBar>(R.id.hotProduct_rating)
+        val favourite = view.findViewById<ImageButton>(R.id.hotProduct_favourite)
+        val cart = view.findViewById<ImageButton>(R.id.hotProduct_cart)
 
 
         Picasso.get().load(ProductList[position].image1).centerCrop().fit().into(image)

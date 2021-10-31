@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentHomeBinding
+import com.example.shopping.ui.adapter.DiscountAreaViewPagerAdapter
 import com.example.shopping.ui.adapter.HotProductViewPagerAdapter
 import com.example.shopping.ui.adapter.ProductBrandsViewPagerAdapter
 
@@ -19,6 +20,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var hotProductViewPager: ViewPager
     private lateinit var productBrandsViewPager: ViewPager
+    private lateinit var discountAreaViewPager: ViewPager
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
@@ -47,6 +49,19 @@ class HomeFragment : Fragment() {
         getHotProducts()
         initHotProductObserve()
 
+        getDiscountArea()
+        initDiscountAreaObserve()
+
+    }
+
+    private fun initDiscountAreaObserve() {
+        homeViewModel.discountAreaLD.observe(viewLifecycleOwner, {
+           discountAreaViewPager.adapter = DiscountAreaViewPagerAdapter(requireContext(), it)
+        })
+    }
+
+    private fun getDiscountArea() {
+        homeViewModel.getDiscountArea()
     }
 
     private fun initHotProductObserve() {
@@ -75,10 +90,13 @@ class HomeFragment : Fragment() {
         productBrandsViewPager.clipToPadding = false
         productBrandsViewPager.setPadding(0,0,(getScreenWidth()*0.2).toInt(),0)
 
-
         hotProductViewPager = view.findViewById(R.id.hotProduct_view_pager)
         hotProductViewPager.clipToPadding = false
         hotProductViewPager.setPadding(0, 0, (getScreenWidth() * 0.6).toInt(), 0)
+
+        discountAreaViewPager = view.findViewById(R.id.discountArea_view_pager)
+        discountAreaViewPager.clipToPadding = false
+        discountAreaViewPager.setPadding(0, 0,  (getScreenWidth() * 0.6).toInt(), 0)
     }
 
     override fun onDestroyView() {
