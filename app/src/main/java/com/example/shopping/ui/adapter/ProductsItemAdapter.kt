@@ -20,10 +20,10 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
     class ProductViewHolder(val bind: RowOneProductItemBinding) : RecyclerView.ViewHolder(bind.root)
 
     private val listOfFavourite = mutableListOf<ProductItem>()
+
     fun setFavList(listProductItem: List<ProductItem>) {
         listOfFavourite.clear()
         listOfFavourite.addAll(listProductItem)
-
         notifyDataSetChanged()
     }
 
@@ -73,7 +73,7 @@ class ProductsItemAdapter : ListAdapter<ProductItem, ProductsItemAdapter.Product
                 bind.likeImage.setColorFilter(
                     ContextCompat.getColor(
                         holder.itemView.context,
-                        R.color.activeBottomColor
+                        R.color.red
                     )
                 )
                 bind.likeImage.setOnClickListener {
