@@ -24,6 +24,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                app:layout_constraintTop_toTopOf="parent"
                 android:id="@+id/categoryTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,30 +37,6 @@
                 app:drawableTint="@color/white"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/cartItemCount"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:background="@drawable/circl_shep"
-                android:backgroundTint="@color/red"
-                android:gravity="center"
-                android:src="@drawable/ic_cart"
-                android:text="1"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <ImageView
-                android:id="@+id/shopCart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/_2sdp"
-                android:src="@drawable/ic_cart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

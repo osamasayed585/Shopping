@@ -57,6 +57,10 @@ class ShopFragment : Fragment() {
         val item: MenuItem = binding.toolbar.menu.findItem(R.id.orders)
         val v: View = item.actionView!!
         countCart = v.findViewById(R.id.cartNotification)
+        countCart.setOnClickListener {
+            (requireActivity() as MainActivity).navController.navigate(R.id.ordersFragment)
+        }
+
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.search -> {
@@ -64,9 +68,12 @@ class ShopFragment : Fragment() {
                 }
                 R.id.favourite -> {
                     (requireActivity() as MainActivity).navController.navigate(R.id.favouriteFragment)
-                    true
+                    false
                 }
-
+                R.id.orders -> {
+                    (requireActivity() as MainActivity).navController.navigate(R.id.ordersFragment)
+                    false
+                }
                 else -> {
                     false
                 }
@@ -120,17 +127,15 @@ class ShopFragment : Fragment() {
         }
 
         shopViewModel.cartItems.observe(viewLifecycleOwner) {
-            binding.cartItemCount.isVisible = it.isNotEmpty()
-            binding.cartItemCount.text = it.size.toString()
+           countCart.isVisible = it.isNotEmpty()
+           countCart.text = it.size.toString()
 
             // look!, this is best
             countCart.isVisible1 = it.isNotEmpty()
             countCart.text = it.size.toString()
         }
 
-        binding.shopCart.setOnClickListener {
-            (requireActivity() as MainActivity).navController.navigate(R.id.ordersFragment)
-        }
+
 
 
         shopViewModel.listOfFavouriteProducts.observe(viewLifecycleOwner) {

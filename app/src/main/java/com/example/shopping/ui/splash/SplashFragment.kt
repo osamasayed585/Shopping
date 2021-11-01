@@ -5,21 +5,19 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.FragmentSplashBinding
 import com.example.shopping.ui.main.MainActivity
 import com.hrhera.login.utils.AnimationUtil.scaleUp
 import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
-import com.hrhera.login.utils.Static
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -46,7 +44,10 @@ class SplashFragment : Fragment() {
         toWhere()
         binding.btLogin.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_loginFragment) }
         binding.btSignUp.setOnClickListener { findNavController().navigate(R.id.action_splashFragment_to_registerFragment) }
-        binding.skipLogin.setOnClickListener { Static.onLogin?.onDone() }
+        binding.skipLogin.setOnClickListener {
+            (requireActivity() as MainActivity).onLogin()
+        }
+
 
     }
 
@@ -59,7 +60,7 @@ class SplashFragment : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (statusLogin || statusRegister) {
-                Static.onLogin?.onDone()
+                (requireActivity() as MainActivity).onLogin()
             } else {
                 initStatusBar(true)
                 GlobalScope.launch {

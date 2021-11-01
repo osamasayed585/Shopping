@@ -1,9 +1,7 @@
 package com.example.shopping.ui.home
 
-import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -11,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContentProviderCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -23,9 +20,9 @@ import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.ui.adapter.DiscountAreaViewPagerAdapter
 import com.example.shopping.ui.adapter.HotProductViewPagerAdapter
 import com.example.shopping.ui.adapter.ProductBrandsViewPagerAdapter
-import com.example.shopping.ui.adapter.ProductsItemAdapter
 import com.example.shopping.ui.main.MainActivity
 import com.example.shopping.util.call_back.OnRecyclerItemClick
+import com.example.shopping.util.getScreenWidth
 
 
 class HomeFragment : Fragment() {
@@ -143,31 +140,18 @@ class HomeFragment : Fragment() {
 
         productBrandsViewPager = view.findViewById(R.id.productBrands_view_pager)
         productBrandsViewPager.clipToPadding = false
-        productBrandsViewPager.setPadding(0,0,(getScreenWidth()*0.2).toInt(),0)
+        productBrandsViewPager.setPadding(0,0,(requireActivity().getScreenWidth()*0.2).toInt(),0)
 
         hotProductViewPager = view.findViewById(R.id.hotProduct_view_pager)
         hotProductViewPager.clipToPadding = false
-        hotProductViewPager.setPadding(0, 0, (getScreenWidth() * 0.6).toInt(), 0)
+        hotProductViewPager.setPadding(0, 0, (requireActivity().getScreenWidth() * 0.6).toInt(), 0)
 
         discountAreaViewPager = view.findViewById(R.id.discountArea_view_pager)
         discountAreaViewPager.clipToPadding = false
-        discountAreaViewPager.setPadding(0, 0,  (getScreenWidth() * 0.6).toInt(), 0)
+        discountAreaViewPager.setPadding(0, 0,  (requireActivity().getScreenWidth() * 0.6).toInt(), 0)
     }
 
-    private fun getScreenWidth(): Int {
 
-        val display = requireActivity().windowManager.defaultDisplay
-
-        val density = resources.displayMetrics.density
-        val size = Point();
-        display.getSize(size);
-        val width = size.x;
-        val height = size.y;
-        Log.e("Width", "" + width);
-        Log.e("height", "" + height);
-
-        return width
-    }
 
     private fun initSearchView(it: MenuItem): Boolean {
         val searchView: SearchView = it.actionView as SearchView
