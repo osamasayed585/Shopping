@@ -37,5 +37,10 @@
     <string name="product_image">Proudct Image</string>
     <string name="skip_now">Skip Now</string>
     <string name="category">Category</string>
+    <string name="home">Home</string>
+    <string name="checkout">CheckOut</string>
+    <string name="total">Total</string>
+    <string name="zero_count_val"> <strike>0</strike></string>
+    <string name="search">Search</string>
 
 </resources>

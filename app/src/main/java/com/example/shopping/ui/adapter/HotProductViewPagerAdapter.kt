@@ -5,13 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.viewModelScope
 import androidx.viewpager.widget.PagerAdapter
 import com.example.shopping.R
+import com.example.shopping.model.data_class.CartItem
 
 import com.example.shopping.model.data_class.ProductItem
+import com.example.shopping.util.call_back.OnRecyclerItemClick
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 
 class HotProductViewPagerAdapter(var context: Context, var ProductList: List<ProductItem>): PagerAdapter() {
+
+    companion object{
+        lateinit var addToCartClick: OnRecyclerItemClick
+        lateinit var addToFavouriteClick: OnRecyclerItemClick
+        lateinit var removeFromFavouriteClick: OnRecyclerItemClick
+    }
+
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
@@ -42,7 +53,7 @@ class HotProductViewPagerAdapter(var context: Context, var ProductList: List<Pro
             Toast.makeText(context, "added", Toast.LENGTH_SHORT).show()
         }
         cart.setOnClickListener{
-            Toast.makeText(context, "added", Toast.LENGTH_SHORT).show()
+            addToCartClick.onItemClick(ProductList[position])
         }
 
         view.setOnClickListener {

@@ -8,7 +8,7 @@
         android:id="@+id/search"
         android:icon="@drawable/ic_search"
         android:iconTint="@color/white"
-        android:title="@string/my_orders"
+        android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always|collapseActionView"
         tools:ignore="AlwaysShowAction" />
@@ -18,6 +18,13 @@
         android:icon="@drawable/ic_favorite"
         android:title="@string/my_favourite"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/orders"
+        android:title="@string/my_orders"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_cart"
+        app:actionLayout="@layout/custom_notification_cart"/>
 
 
 </menu>
