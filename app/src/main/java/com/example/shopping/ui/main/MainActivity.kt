@@ -12,12 +12,13 @@ import com.example.shopping.R
 import com.example.shopping.databinding.ActivityMainBinding
 import com.example.shopping.ui.filter_by_category.FilterByCategoryViewModel
 import com.hrhera.login.utils.OnLogin
+import com.hrhera.login.utils.OnUserLogin
 import com.hrhera.login.utils.Static
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnUserLogin {
 
     private lateinit var binding: ActivityMainBinding
-     lateinit var navController: NavController
+    lateinit var navController: NavController
     val sherViewModel: FilterByCategoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Static.onLogin = object : OnLogin {
-            override fun onDone() {
-                afterLogin()
-            }
-        }
+        Static.onUserLogin = this
         initBottomNav()
 
     }
@@ -41,8 +38,21 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    fun afterLogin() {
+    private fun afterLogin() {
         binding.contentMain.navView.visibility = View.VISIBLE
         navController.setGraph(R.navigation.mobile_navigation)
+    }
+
+    private fun afterLogout() {
+        binding.contentMain.navView.visibility = View.GONE
+        navController.setGraph(R.navigation.main_graph)
+    }
+
+    override fun onLogOut() {
+        afterLogout()
+    }
+
+    override fun onLogin() {
+        afterLogin()
     }
 }

@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.shopping.R
-import com.example.shopping.model.data.User
 import com.example.shopping.model.remote.RemoteBuilder
 import com.hrhera.login.model.data.Data
 import com.hrhera.login.model.remote.RemoteRepositoryImp
@@ -74,6 +73,6 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
             putString(Constants.TOKEN_REGISTER, token)
             putBoolean(Constants.STATUS_REGISTER, status)
         }.apply()
-        Static.onLogin?.onDone()
+        Static.onUserLogin?.onLogin()
     }
 }

@@ -77,6 +77,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             putString(Constants.TOKEN_LOGIN, token)
             putBoolean(Constants.STATUS_LOGIN, status)
         }.apply()
-        Static.onLogin?.onDone()
+        Static.onUserLogin?.onLogin()
     }
 }
