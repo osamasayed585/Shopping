@@ -8,26 +8,25 @@
 
     <ImageView
         android:id="@+id/icon_images"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_cart_50"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/cartNotification"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:gravity="center"
-        android:text="10"
-        android:textSize="14sp"
-        android:textStyle="bold"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:background="@drawable/shape_notification"
-        android:layout_toEndOf="@+id/icon_images"
-        android:textColor="@color/white"
-        android:layout_alignTop="@+id/icon_images"
+        android:layout_above="@id/icon_images"
+        android:layout_toRightOf="@id/icon_images"
         android:layout_marginStart="-10dp"
-        android:layout_marginTop="-3dp"
-        />
+        android:layout_marginBottom="-10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

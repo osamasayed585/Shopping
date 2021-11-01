@@ -9,6 +9,7 @@
     <string name="login">Login</string>
     <string name="registration">Registration</string>
     <string name="cancel">Cancel</string>
+    <string name="do_you_have_not_any_account">Do you have not any account?</string>
     <string name="full_name">Enter your name</string>
     <string name="enter_email">Enter your email</string>
     <string name="enter_phone">Enter your phone</string>
@@ -40,9 +41,7 @@
     <string name="total">Total</string>
 
     <string name="zero_count_val"> <strike>0</strike></string>
-
-
-
+    <string name="search">Search</string>
 
 
     <string-array name="spinnerData">

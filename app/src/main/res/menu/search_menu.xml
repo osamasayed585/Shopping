@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/fav"
-        android:title="my favourite"
-        android:icon="@drawable/ic_favorite_50"
-        app:showAsAction="always"
-        />
-    <item
-        android:id="@+id/orders"
-        android:title="My Orders"
-        android:icon="@drawable/ic_cart_50"
-        app:showAsAction="always"
-        android:actionLayout="@layout/custom_notification_cart"
-        />
+<!--    <item-->
+<!--        android:id="@+id/fav"-->
+<!--        android:title="my favourite"-->
+<!--        android:icon="@drawable/ic_favorite_50"-->
+<!--        app:showAsAction="always"-->
+<!--        />-->
+<!--    <item-->
+<!--        android:id="@+id/orders"-->
+<!--        android:title="My Orders"-->
+<!--        android:icon="@drawable/ic_cart_50"-->
+<!--        app:showAsAction="always"-->
+<!--        android:actionLayout="@layout/custom_notification_cart"-->
+<!--        />-->
 </menu>
