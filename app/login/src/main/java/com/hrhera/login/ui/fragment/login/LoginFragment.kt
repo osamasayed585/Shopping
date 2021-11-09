@@ -18,7 +18,6 @@ import com.hrhera.login.utils.AnimationUtil.slideUp
 import com.hrhera.login.utils.LoginStates
 import kotlinx.coroutines.*
 
-
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding

@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.shopping.R
 import com.example.shopping.databinding.ActivityMainBinding
+import com.example.shopping.databinding.ContentMainBinding
 import com.example.shopping.ui.filter_by_category.FilterByCategoryViewModel
 import com.hrhera.login.utils.OnLogin
 import com.hrhera.login.utils.OnUserLogin
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity(), OnUserLogin {
 
     }
 
-
     private fun initBottomNav() {
         val navView: BottomNavigationView = binding.contentMain.navView
         navController = findNavController(R.id.nav_host_fragment_activity_main2)
@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(), OnUserLogin {
     private fun afterLogin() {
         binding.contentMain.navView.visibility = View.VISIBLE
         navController.setGraph(R.navigation.mobile_navigation)
+
     }
 
     private fun afterLogout() {

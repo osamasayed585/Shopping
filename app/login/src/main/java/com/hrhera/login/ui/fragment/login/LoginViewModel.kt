@@ -10,7 +10,9 @@ import com.hrhera.login.model.data.Data
 import com.hrhera.login.model.remote.RemoteRepositoryImp
 import com.hrhera.login.model.remote.ShoppingAPI
 import com.hrhera.login.utils.*
+import com.hrhera.login.utils.Constants.Companion.STATUS_LOGIN
 import com.hrhera.login.utils.Constants.Companion.TAG
+import com.hrhera.login.utils.Constants.Companion.TOKEN_LOGIN
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
@@ -74,8 +76,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         )
         val editor = sharedPreferences.edit()
         editor.apply {
-            putString(Constants.TOKEN_LOGIN, token)
-            putBoolean(Constants.STATUS_LOGIN, status)
+            putString(TOKEN_LOGIN, token)
+            putBoolean(STATUS_LOGIN, status)
         }.apply()
         Static.onUserLogin?.onLogin()
     }

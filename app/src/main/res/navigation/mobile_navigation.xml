@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.shopping.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 
     gi<fragment
         android:id="@+id/navigation_shopping_cart"
@@ -22,10 +26,17 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_account"
-        android:name="com.example.shopping.ui.account.AccountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        android:id="@+id/navigation_profile"
+        android:name="com.example.shopping.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_navigation_profile_to_loginFragment2"
+            app:destination="@id/loginFragmentInMobileNav" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_message"
@@ -52,5 +63,15 @@
         android:name="com.example.shopping.ui.filter_by_category.FilterByCategoryFragment"
         android:label="fragment_filter_by_category"
         tools:layout="@layout/fragment_filter_by_category" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.shopping.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/loginFragmentInMobileNav"
+        android:name="com.hrhera.login.ui.fragment.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>
