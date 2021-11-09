@@ -12,7 +12,7 @@
         android:title="@string/title_shopping" />
 
     <item
-        android:id="@+id/navigation_account"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_user"
         android:title="@string/account" />
     <item

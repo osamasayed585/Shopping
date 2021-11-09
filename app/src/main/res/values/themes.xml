@@ -92,7 +92,7 @@
 
     <!--    account button -->
     <style name="accountButtons" parent="@android:style/Widget.Button">
-        <item name="fontFamily">@font/gilroy_bold</item>
+        <item name="fontFamily">@font/roboto_medium</item>
         <item name="textAllCaps">false</item>
         <item name="colorPrimary">@color/white</item>
         <item name="android:textSize">20sp</item>

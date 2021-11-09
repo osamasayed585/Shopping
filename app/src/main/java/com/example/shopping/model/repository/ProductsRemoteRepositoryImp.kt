@@ -8,15 +8,19 @@ import com.example.shopping.model.data_class.ProductItem
 import com.example.shopping.model.data_class.RunType
 import com.example.shopping.model.local.TestData
 import com.example.shopping.model.remote.ShopRemoteBuilder
-import com.example.shopping.model.remote.ShoppingAPI
 import com.example.shopping.model.local.DataBaseHelper
+import com.example.shopping.model.remote.RemoteBuilder
+import com.hrhera.login.model.data.Data
+import com.hrhera.login.model.remote.ShoppingAPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
 class ProductsRemoteRepositoryImp : ProductRepository {
-    private var api: ShoppingAPI? = null
+    private var apiLogin: ShoppingAPI? = null
+    private var api: com.example.shopping.model.remote.ShoppingAPI? = null
     private var isOnline = false
     private val dataBase = DataBaseHelper.getInstance(MApplication.getAppContext()).productsDao()
     var allFavouriteProducts: LiveData<List<ProductItem>> = dataBase.allFavouriteProducts
@@ -25,10 +29,11 @@ class ProductsRemoteRepositoryImp : ProductRepository {
     init {
         isOnline = MApplication.TYPE == RunType.ONLINE
         if (isOnline) {
-            api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
+            api = ShopRemoteBuilder.productBuilder().create(com.example.shopping.model.remote.ShoppingAPI::class.java)
         }
 
     }
+
     override suspend fun getALlProduct() = if (isOnline) {
         withContext(Dispatchers.IO) {
             api!!.getAllProducts().body()!!
@@ -87,21 +92,34 @@ class ProductsRemoteRepositoryImp : ProductRepository {
 
 
     override suspend fun getProductBrands() = withContext(Dispatchers.IO) {
-        api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
+        api = ShopRemoteBuilder.productBuilder()
+            .create(com.example.shopping.model.remote.ShoppingAPI::class.java)
         api!!.getProductBrands().body()!!
     }
 
 
     override suspend fun getAllHotProducts() = withContext(Dispatchers.IO) {
-        api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
+        api = ShopRemoteBuilder.productBuilder()
+            .create(com.example.shopping.model.remote.ShoppingAPI::class.java)
         api!!.getAllProducts().body()!!
     }
 
-    override suspend fun getDiscountArea() = withContext(Dispatchers.IO){
-        api = ShopRemoteBuilder.productBuilder().create(ShoppingAPI::class.java)
+    override suspend fun getDiscountArea() = withContext(Dispatchers.IO) {
+        api = ShopRemoteBuilder.productBuilder()
+            .create(com.example.shopping.model.remote.ShoppingAPI::class.java)
         api!!.getDiscountArea().body()!!
     }
 
+    override suspend fun getProfile(authorization: String) = withContext(Dispatchers.IO){
+        apiLogin = RemoteBuilder.builderLogin().create(ShoppingAPI::class.java)
+        apiLogin!!.getProfile(authorization)
+    }
+
+
+    override suspend fun postLogin(data: Data) = withContext(Dispatchers.IO){
+        apiLogin = RemoteBuilder.builderLogin().create(ShoppingAPI::class.java)
+        apiLogin!!.postLogin(data)
+    }
 
 
     override suspend fun getProductInCart() =
@@ -114,7 +132,6 @@ class ProductsRemoteRepositoryImp : ProductRepository {
                 TestData.getProductInCart().body()!!
             }
         }
-
 
 
     suspend fun addItemToCartList(item: CartItem) =
@@ -163,7 +180,10 @@ class ProductsRemoteRepositoryImp : ProductRepository {
     suspend fun deleteFromFavouriteProducts(item: ProductItem) {
         GlobalScope.launch(Dispatchers.IO) {
             dataBase.delete(item.id)
-            Log.e("TAG", "deleteFromFavouriteProducts:${dataBase.delete(item.id)} ${allFavouriteProducts.value?.size}  id = ${item.id}")
+            Log.e(
+                "TAG",
+                "deleteFromFavouriteProducts:${dataBase.delete(item.id)} ${allFavouriteProducts.value?.size}  id = ${item.id}"
+            )
 
         }
     }
