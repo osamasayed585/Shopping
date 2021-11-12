@@ -13,7 +13,10 @@ import com.hrhera.login.model.data.Data
 import com.hrhera.login.model.remote.RemoteRepositoryImp
 import com.hrhera.login.model.remote.ShoppingAPI
 import com.hrhera.login.utils.*
+import com.hrhera.login.utils.Constants.Companion.SHOPPING_DATA
+import com.hrhera.login.utils.Constants.Companion.STATUS_REGISTER
 import com.hrhera.login.utils.Constants.Companion.TAG
+import com.hrhera.login.utils.Constants.Companion.TOKEN_REGISTER
 import kotlinx.coroutines.launch
 
 class RegisterViewModel(application: Application): AndroidViewModel(application) {
@@ -65,13 +68,13 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
     }
     private fun saveData(token: String, status: Boolean) {
         val sharedPreferences = ctx.getSharedPreferences(
-            Constants.SHOPPING_DATA,
+            SHOPPING_DATA,
             Context.MODE_PRIVATE
         )
         val editor = sharedPreferences.edit()
         editor.apply {
-            putString(Constants.TOKEN_REGISTER, token)
-            putBoolean(Constants.STATUS_REGISTER, status)
+            putString(TOKEN_REGISTER, token)
+            putBoolean(STATUS_REGISTER, status)
         }.apply()
         Static.onUserLogin?.onLogin()
     }

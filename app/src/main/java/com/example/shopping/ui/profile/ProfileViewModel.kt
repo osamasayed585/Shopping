@@ -30,7 +30,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     private var repository: ProductsRemoteRepositoryImp = ProductsRemoteRepositoryImp()
 
     private var _mutableLiveData = MutableLiveData<User>()
-    val liveData: LiveData<User> = _mutableLiveData
+    val nameLiveData: LiveData<User> = _mutableLiveData
 
     private var _mutableProgressBar = MutableLiveData<Boolean>()
     val mutableProgressBar: LiveData<Boolean> = _mutableProgressBar
