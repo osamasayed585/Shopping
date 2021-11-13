@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class HotProductViewPagerAdapter(var context: Context, var ProductList: List<ProductItem>): PagerAdapter() {
 
-    companion object{
+    companion object {
         lateinit var addToCartClick: OnRecyclerItemClick
         lateinit var addToFavouriteClick: OnRecyclerItemClick
         lateinit var removeFromFavouriteClick: OnRecyclerItemClick
@@ -52,7 +52,7 @@ class HotProductViewPagerAdapter(var context: Context, var ProductList: List<Pro
         favourite.setOnClickListener {
             Toast.makeText(context, "added", Toast.LENGTH_SHORT).show()
         }
-        cart.setOnClickListener{
+        cart.setOnClickListener {
             addToCartClick.onItemClick(ProductList[position])
         }
 

@@ -89,19 +89,18 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_navigation_profile_to_loginFragment2)
             Static.onUserLogin?.onLogOut()
         }
-
-//        initToolbar(binding.toolbar, R.string.account, false)
     }
 
     fun initProgressBar(status: Boolean) {
         binding.profileProgressBar.isVisible = status
     }
-     fun initTopErrorMessage(status: Boolean){
+
+    fun initTopErrorMessage(status: Boolean){
         binding.profileMessageToast.isVisible = status
         binding.profileMessageToast.slideDown(900)
     }
-    // code handle open the camera or gallery
 
+    // code handle open the camera or gallery
     private fun showPictureDialog() {
         val pictureDialog = AlertDialog.Builder(requireContext())
         pictureDialog.setTitle("Select Action")
@@ -115,9 +114,9 @@ class ProfileFragment : Fragment() {
         }
         pictureDialog.show()
     }
+
     private fun choosePhotoFromGallary() {
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-
         startActivityForResult(galleryIntent, GALLERY)
     }
 
@@ -125,76 +124,28 @@ class ProfileFragment : Fragment() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(intent, CAMERA)
     }
+
     override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
 
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == GALLERY)
-        {
-            if (data != null)
-            {
+        if (requestCode == GALLERY) {
+            if (data != null) {
                 val contentURI = data.data
-                try
-                {
+                try {
                     val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
-                    val path = saveImage(bitmap)
                     Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
                     binding.profileImage.setImageBitmap(bitmap)
-
                 }
                 catch (e: IOException) {
                     e.printStackTrace()
-                    Toast.makeText(context, "Failed!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Failed!", Toast.LENGTH_LONG).show()
                 }
-
             }
-
         }
-        else if (requestCode == CAMERA)
-        {
+        else if (requestCode == CAMERA) {
             val thumbnail = data!!.extras!!.get("data") as Bitmap
             binding.profileImage.setImageBitmap(thumbnail)
-            saveImage(thumbnail)
             Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun saveImage(myBitmap: Bitmap):String {
-        val bytes = ByteArrayOutputStream()
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
-        val wallpaperDirectory = File(
-            (Environment.getExternalStorageDirectory()).toString() + IMAGE_DIRECTORY)
-        // have the object build the directory structure, if needed.
-        Log.d("fee",wallpaperDirectory.toString())
-        if (!wallpaperDirectory.exists())
-        {
-
-            wallpaperDirectory.mkdirs()
-        }
-
-        try
-        {
-            Log.d("heel",wallpaperDirectory.toString())
-            val f = File(wallpaperDirectory, ((Calendar.getInstance()
-                .getTimeInMillis()).toString() + ".jpg"))
-            f.createNewFile()
-            val fo = FileOutputStream(f)
-            fo.write(bytes.toByteArray())
-            MediaScannerConnection.scanFile(context,
-                arrayOf(f.getPath()),
-                arrayOf("image/jpeg"), null)
-            fo.close()
-            Log.d("TAG", "File Saved::--->" + f.absolutePath)
-
-            return f.absolutePath
-        }
-        catch (e1: IOException) {
-            e1.printStackTrace()
-        }
-
-        return ""
-    }
-
-    companion object {
-        private val IMAGE_DIRECTORY = "/demonuts"
     }
 }
