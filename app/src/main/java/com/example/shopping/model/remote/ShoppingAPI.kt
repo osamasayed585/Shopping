@@ -22,17 +22,14 @@ interface ShoppingAPI {
     @GET("shop")
     suspend fun getCategoryProductByName(@Query("name") name: String): Response<List<ProductItem>>
 
-
     @GET("shop")
     suspend fun filterProductByQueryName(@Query("name") name: String): Response<List<ProductItem>>
-
 
     @GET("brands")
     suspend fun getProductBrands(): Response<List<ProductItem>>
 
     @GET("shop")
     suspend fun getDiscountArea(): Response<List<ProductItem>>
-
 
     @POST("add-item-to-cart")
     suspend fun getProductInCart(@Field("item") item: Map<String, String>): Response<List<CartItem>>
