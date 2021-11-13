@@ -15,8 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/account_menu"
-        app:titleTextColor="@color/white"
-        tools:title="For Test" />
+        app:titleTextColor="@color/white"/>
 
     <RelativeLayout
         android:id="@+id/profile_messageToast"
