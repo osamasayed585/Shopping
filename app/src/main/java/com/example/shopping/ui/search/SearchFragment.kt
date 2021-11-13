@@ -16,16 +16,10 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -34,36 +28,14 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initToolbar(binding.toolbar,0,true)
-        val user = arrayOf(
-            "osama",
-            "Ali",
-            "Mohammed",
-            "Sayed",
-            "Said",
-            "Saad",
-            "Ahmed",
-            "ABC",
-            "Khalefa",
-            "ABCD",
-            "Android",
-            "Developer",
-            "Git Flow",
-            "Java",
-            "Kotlin"
-        )
-        val userAdapter: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, user)
-        binding.userList.adapter = userAdapter
+
+
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.searchView.clearFocus()
-                if (user.contains(query)) {
-                    userAdapter.filter.filter(query)
-                }
-                return false
+                return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
-                userAdapter.filter.filter(newText)
-                return false
+                return true
             }
         })
     }
