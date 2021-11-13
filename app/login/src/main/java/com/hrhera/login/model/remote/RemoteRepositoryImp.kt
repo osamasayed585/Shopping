@@ -5,7 +5,7 @@ import com.hrhera.login.model.data.Data
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class RemoteRepositoryImp(val api: ShoppingAPI): RemoteRepository {
+class RemoteRepositoryImp(private val api: ShoppingAPI): RemoteRepository {
     override suspend fun getProfile(authorization: String) = withContext(Dispatchers.IO){
         api.getProfile(authorization)
     }
