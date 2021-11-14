@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.shopping.databinding.FragmentAccountBinding
 
 class AccountFragment : Fragment() {
@@ -22,9 +23,21 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var status = true
         binding.accountUpdate.setOnClickListener {
-            binding.accountUpdate.text = "Done"
-            statusEditText(true)
+
+            if(status){
+                status = false;
+                binding.accountUpdate.text = "Done"
+                statusEditText(true)
+            }
+            else{
+                status = true;
+                binding.accountUpdate.text = "Update"
+                statusEditText(false)
+                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+            }
+
         }
         binding.accountName.setText("Osama")
         binding.accountEmail.setText("osamasayed151@github.com")
