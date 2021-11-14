@@ -60,7 +60,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
             Constants.SHOPPING_DATA,
             Context.MODE_PRIVATE
         )
-
         val isLogin: Boolean = sharedPreferences.getBoolean(STATUS_LOGIN, false)
         val isRegister: Boolean = sharedPreferences.getBoolean(STATUS_REGISTER, false)
 
@@ -72,12 +71,7 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
             isRegister -> getUserData(tokenRegister!!)
             else -> {
                 _mutableTopMessageError.value = true
-                viewModelScope.launch {
-                    _mutableStatus.value = "Sorry, you must be login.."
-                    delay(4000)
-                    _mutableTopMessageError.value = false
-                }
-
+                _mutableStatus.value = "Sorry, you must be login.."
             }
         }
     }
