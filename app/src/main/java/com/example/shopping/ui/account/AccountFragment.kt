@@ -22,8 +22,8 @@ class AccountFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View{
-        binding = FragmentAccountBinding.inflate(inflater,container,false)
+    ): View {
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
         statusEditText(false)
         return binding.root
     }
@@ -33,15 +33,15 @@ class AccountFragment : Fragment() {
         var status = true
         binding.accountUpdate.setOnClickListener {
 
-            if(status){
+            if (status) {
                 status = false;
                 binding.accountUpdate.text = "Done"
                 statusEditText(true)
-            }
-            else{
+            } else {
                 status = true;
                 binding.accountUpdate.text = "Update"
                 statusEditText(false)
+                // todo handle save data
                 Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
             }
 
@@ -69,7 +69,8 @@ class AccountFragment : Fragment() {
         val pictureDialog = AlertDialog.Builder(requireContext())
         pictureDialog.setTitle("Select Action")
         val pictureDialogItems = arrayOf("Select photo from gallery", "Capture photo from camera")
-        pictureDialog.setItems(pictureDialogItems
+        pictureDialog.setItems(
+            pictureDialogItems
         ) { dialog, which ->
             when (which) {
                 0 -> choosePhotoFromGallary()
@@ -89,26 +90,27 @@ class AccountFragment : Fragment() {
         startActivityForResult(intent, CAMERA)
     }
 
-    override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == GALLERY) {
             if (data != null) {
                 val contentURI = data.data
                 try {
-                    val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
+                    val bitmap =
+                        MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
+                    // todo save image from gallery
                     Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
                     binding.accountImage.setImageBitmap(bitmap)
-                }
-                catch (e: IOException) {
+                } catch (e: IOException) {
                     e.printStackTrace()
                     Toast.makeText(context, "Failed!", Toast.LENGTH_LONG).show()
                 }
             }
-        }
-        else if (requestCode == CAMERA) {
+        } else if (requestCode == CAMERA) {
             val thumbnail = data!!.extras!!.get("data") as Bitmap
             binding.accountImage.setImageBitmap(thumbnail)
+            // todo save image from camera
             Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
         }
     }

@@ -44,6 +44,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        var isNotRegister = false
 
         viewModel.initStatus()
 
@@ -53,6 +54,7 @@ class ProfileFragment : Fragment() {
 
         viewModel.topMessageError.observe(viewLifecycleOwner,{
             initTopErrorMessage(it)
+            isNotRegister = it
         })
 
         viewModel.mutableStatus.observe(viewLifecycleOwner, {
@@ -67,11 +69,20 @@ class ProfileFragment : Fragment() {
         })
 
         binding.ProfileChangeImage.setOnClickListener {
-            showPictureDialog()
+            if (isNotRegister){
+                Toast.makeText(context, "Sorry, you must be login..", Toast.LENGTH_SHORT).show()
+            }else{
+                showPictureDialog()
+            }
         }
 
         binding.profileAccount.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_profile_to_accountFragment)
+            if (isNotRegister){
+                Toast.makeText(context, "Sorry, you must be login..", Toast.LENGTH_SHORT).show()
+            }else{
+                findNavController().navigate(R.id.action_navigation_profile_to_accountFragment)
+            }
+
         }
         binding.profileLanguage.setOnClickListener {
             // todo
@@ -97,7 +108,7 @@ class ProfileFragment : Fragment() {
 
     fun initTopErrorMessage(status: Boolean){
         binding.profileMessageToast.isVisible = status
-        binding.profileMessageToast.slideDown(900)
+      //  binding.profileMessageToast.slideDown(900)
     }
 
     // code handle open the camera or gallery
