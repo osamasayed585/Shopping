@@ -10,11 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProvider
 import com.example.shopping.databinding.FragmentAccountBinding
+import com.example.shopping.util.AccountStatus
+import com.example.shopping.util.view.CircleTransform
+import com.squareup.picasso.Picasso
 import java.io.IOException
 
 class AccountFragment : Fragment() {
 
+    private lateinit var viewModel: AccountViewModel
     private lateinit var binding: FragmentAccountBinding
     private val GALLERY = 1
     private val CAMERA = 2
@@ -30,7 +36,36 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity())[AccountViewModel::class.java]
         var status = true
+        viewModel.getUserInformation()
+
+        viewModel.statusProgressBar.observe(viewLifecycleOwner,{
+            initProgressBar(it)
+        })
+
+        viewModel.statusAccount.observe(viewLifecycleOwner, {
+            when (it) {
+                is AccountStatus.SUCCESS -> {
+                    Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show()
+                }
+                is AccountStatus.SOME_ERROR -> {
+                    Toast.makeText(context, "$it", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
+        viewModel.dataViewModel.observe(viewLifecycleOwner,{
+            binding.accountName.setText(it.data.name)
+            binding.accountEmail.setText(it.data.email)
+            binding.accountPhone.setText(it.data.phone)
+            Picasso.get().load(it.data.image)
+                .centerCrop()
+                .fit()
+                .transform(CircleTransform())
+                .into(binding.accountImage)
+        })
+
         binding.accountUpdate.setOnClickListener {
 
             if (status) {
@@ -41,18 +76,19 @@ class AccountFragment : Fragment() {
                 status = true;
                 binding.accountUpdate.text = "Update"
                 statusEditText(false)
-                // todo handle save data
+                // todo handle save data using room
                 Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
             }
 
         }
-        binding.accountName.setText("Osama")
-        binding.accountEmail.setText("osamasayed151@github.com")
-        binding.accountPhone.setText("01286362539")
 
         binding.accountChangeImage.setOnClickListener {
             showPictureDialog()
         }
+    }
+
+    private fun initProgressBar(status: Boolean) {
+       binding.accountProgressBar.isVisible = status
     }
 
     private fun statusEditText(status: Boolean) {
@@ -99,7 +135,7 @@ class AccountFragment : Fragment() {
                 try {
                     val bitmap =
                         MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
-                    // todo save image from gallery
+                    // todo save image from gallery using room
                     Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
                     binding.accountImage.setImageBitmap(bitmap)
                 } catch (e: IOException) {
@@ -110,7 +146,7 @@ class AccountFragment : Fragment() {
         } else if (requestCode == CAMERA) {
             val thumbnail = data!!.extras!!.get("data") as Bitmap
             binding.accountImage.setImageBitmap(thumbnail)
-            // todo save image from camera
+            // todo save image from camera using room
             Toast.makeText(context, "Image Saved!", Toast.LENGTH_SHORT).show()
         }
     }
