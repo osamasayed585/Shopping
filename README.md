@@ -29,6 +29,6 @@ Shopping is an app an e-commerce application under creating
 #### - Navigation Components
 #### - Search
 
-<a href="https://github.com/osamasayed151/convoychat">
+<a href="https://github.com/osamasayed585/convoychat">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=osamasayed151&repo=Shopping" />
 </a>
