@@ -30,5 +30,5 @@ Shopping is an app an e-commerce application under creating
 #### - Search
 
 <a href="https://github.com/osamasayed585/convoychat">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=osamasayed151&repo=Shopping" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=osamasayed585&repo=Shopping" />
 </a>
